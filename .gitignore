@@ -1,0 +1,10 @@
+log/development.log
+storage/development.sqlite3
+storage/development.sqlite3-shm
+storage/development.sqlite3-wal
+tmp/cache/
+tmp/local_secret.txt
+tmp/restart.txt
+/app/assets/builds/*
+!/app/assets/builds/.keep
+tmp/pids/server.pid
