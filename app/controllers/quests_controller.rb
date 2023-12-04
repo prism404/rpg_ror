@@ -33,10 +33,9 @@ before_action :set_quest, only: %i[show edit update destroy]
         render :edit
       end
     end
-  
+
     def destroy
       @quest.destroy
-      redirect_to quests_url, notice: 'Quest was successfully destroyed.'
     end
   
     private

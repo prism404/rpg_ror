@@ -19,6 +19,9 @@
                         <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
                             <%= link_to 'Open', quest %>
                         </button>
+                        <button class="bg-[#001524] hover:bg-[#CD0404] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
+                            <%= link_to 'Delete', quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </button>
                     </td>
                 </tbody>
                 <% end %>   
