@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_07_152730) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_04_095146) do
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer "id_user"
+    t.integer "id_item"
+    t.integer "id_save"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
