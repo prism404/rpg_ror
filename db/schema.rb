@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_07_152730) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_17_134840) do
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quests", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "exp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "reward_type"
+    t.integer "stat_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

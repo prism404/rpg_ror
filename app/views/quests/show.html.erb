@@ -1,0 +1,21 @@
+<div class="overflow-hidden text-white text-center bg-[url('/assets/quests/mountains5.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen">
+        <img src="/assets/quests/parchment.png" class="w-[40em]"/>
+        <div class="absolute grid grid-rows-1 gap-8 place-content-center text-black">
+            <div class="mb-[2em]">
+                <p id="questTitle" class="text-2xl font-bold"><%= @quest.title %></p>
+            </div>
+            <div class="mb-[1em]">
+                <p class="text-xl font-bold">Exp: <%= @quest.exp %></p>
+            </div>
+            <div class="mb-[1em] w-[20em] h-[10em]">
+                <p class="text-xl font-bold break-normal">" <%= @quest.description %> "</p>
+            </div>
+            <div class="flex justify-center mt-2">
+                <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
+                    <%= link_to 'Back', quests_path %>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
