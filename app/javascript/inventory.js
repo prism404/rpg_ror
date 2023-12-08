@@ -12,12 +12,12 @@ key[0].addEventListener('keypress', open_close_invetory);
 
 
 //OUVRIRE ET FERMER L'INVETAIRE (button utiliser "espace")
-let count = 1;
+let count = 0;
 function open_close_invetory(e) {
     if (e.keyCode == 32)
-        if (count % 2 == 0) 
+        if (count % 2 == 0)
             inventory.classList.remove("hidden")
-        else 
+        else
             inventory.classList.add("hidden");
     count++;
 }
