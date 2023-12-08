@@ -1,0 +1,13 @@
+<div class="overflow-hidden text-white text-center bg-[url('/assets/quests/mountains6.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen">
+        <img src="/assets/quests/parchment.png" class="w-[40em]"/>
+        <p class="absolute top-60 text-2xl text-black font-bold">New Quest</p>
+
+        <div class="absolute">
+            <%= render 'form' %>
+        </div>
+        <button class="relative bottom-60 bg-[#001524] hover:bg-[#CD5C08] text-white p-2 border border-[#CD5C08] rounded-full shadow">
+                <%= link_to 'Back', quests_path %>
+        </button>
+    </div>
+</div>

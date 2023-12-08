@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_04_095146) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_06_095421) do
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -23,6 +23,39 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_095146) do
     t.integer "id_save"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "categorie"
+    t.string "stats"
+  end
+
+  create_table "quests", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "exp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "reward1_id"
+    t.integer "reward2_id"
+    t.integer "reward3_id"
+    t.index ["reward1_id"], name: "index_quests_on_reward1_id"
+    t.index ["reward2_id"], name: "index_quests_on_reward2_id"
+    t.index ["reward3_id"], name: "index_quests_on_reward3_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "reward_type"
+    t.integer "stat_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,4 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_095146) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "quests", "rewards", column: "reward1_id"
+  add_foreign_key "quests", "rewards", column: "reward2_id"
+  add_foreign_key "quests", "rewards", column: "reward3_id"
 end

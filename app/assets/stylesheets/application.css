@@ -11,6 +11,7 @@
 }
 
 body {
+    overflow: hidden;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Aclonica', sans-serif;

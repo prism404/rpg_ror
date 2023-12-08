@@ -1,0 +1,36 @@
+<div class="overflow-hidden text-white text-center bg-[url('/assets/quests/interior7.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen">
+        <img src="/assets/quests/parchment.png" class="mt-[2em] w-[62em] rotate-90"/>
+        <div class="absolute">
+            <p class="text-2xl text-black font-bold mb-2">QUETS AVALAIBLE</p>
+            <table class="mb-[5em] text-black min-w-full">
+                <thead class="font-semibold">
+                    <th scope="col" class="px-2 py-2">Title</th>
+                    <th scope="col" class="px-2 py-2">Exp</th>
+                    <th scope="col" class="px-2 py-2">Description</th>
+                    <th scope="col" class="px-2 py-2">Action</th>
+                </thead>
+                <% @quests.each do |quest| %>
+                <tbody class="font-medium border border-[#363062]">
+                    <td class="whitespace-nowrap px-2 py-2 w-[10em]"><%= quest.title%></td>
+                    <td class="whitespace-nowrap px-2 py-2 w-[10em]"><%= quest.exp %></td>
+                    <td class="px-2 py-2 truncate max-w-[28em]"><%= quest.description %></td>
+                    <td class="whitespace-nowrap px-2 py-2 w-[10em]">
+                        <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
+                            <%= link_to 'Open', quest %>
+                        </button>
+                        <button class="bg-[#001524] hover:bg-[#CD0404] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
+                            <%= link_to 'Delete', quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </button>
+                    </td>
+                </tbody>
+                <% end %>   
+            </table>
+            <div class="flex justify-center mt-2">
+                <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
+                    <%= link_to 'New Quest', new_quest_path %>
+                </button>
+            </div>
+        </div>    
+    </div>  
+</div>
