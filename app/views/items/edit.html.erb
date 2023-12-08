@@ -1,0 +1,29 @@
+<div class="flex justify-center">
+    <div class="mt-10" >
+       <%= form_with model: @item, local: true do |form| %>
+       <h1 class="text-2xl text-center mb-4"> Item</h1>
+            <div class='mb-4 flex flex-col items-center' >
+                <%= form.label(:path, class: "")%>
+                <%= form.text_field(:path, class: "") %>
+            </div>
+             <div class='mb-4 flex flex-col items-center'>
+                <%= form.label(:name, class: "") %>
+                <%= form.text_field(:name, class: "") %>
+            </div>
+             <div class='mb-4 flex flex-col items-center'>
+                <%= form.label :categorie %>
+                <%= form.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "w-full py-2 text-center"})%>
+            </div>
+             <div class='mb-4 flex flex-col items-center'>
+                <%= form.label :stats %>
+                <%= form.number_field :stats %>
+            </div>
+            <div class='mb-4'>
+                <img src="/assets/PNG_inventaire/<%= @item.path %>.png" alt="item" class="ml-auto mr-auto border p-4" />
+            </div>
+            <div class='mb-4 flex justify-center'>
+                <%= form.submit("Edit item", class: "bg-cyan-400 p-2 rounded-[7%] cursor-pointer hover:bg-cyan-300") %>
+            </div>
+       <% end %>
+    </div>
+</div>

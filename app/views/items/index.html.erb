@@ -1,0 +1,56 @@
+<div class="flex justify-center text-slate-700">
+    <div class="w-[80vw]">
+        <h1 class="text-center text-2xl my-4">List of item</h1>
+        <%= link_to new_item_path() do %>
+            <button class="ml-10 bg-cyan-300 p-2 rounded-[7%]">Add new item</button>
+        <% end %>
+        <table class="bg-slate-400 w-[100%] mt-4">
+            <thead>
+                <tr>
+                    <th class="h-[8vh]">id</th>
+                    <th>path</th>
+                    <th>name</th>
+                    <th>categorie</th>
+                    <th>status</th>
+                    <th>picture</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @items.each do |item| %>
+                    <tr class="hover:bg-sky-700">
+                        <td class="text-center py-2">
+                            <%= item.id %>
+                        </td>
+                        <td class="text-center">
+                            <%= item.path %>
+                        </td>
+                        <td class="text-center">
+                            <%= item.name %>
+                        </td class="text-center">
+                        <td class="text-center">
+                            <%= item.categorie %>
+                        </td class="text-center">
+                        <td class="text-center">
+                            <%= item.stats %>
+                        </td>
+                        <td class="flex justify-center items-center">
+                            <img src="/assets/PNG_inventaire/<%= item.path %>.png" alt="item">
+                        </td>
+                        <td class="text-center">
+                            <%= link_to edit_item_path(item) do %>
+                                <button class="bg-sky-700 px-2 py-1 text-white rounded-[10%] hover:bg-sky-600">Edit</button>
+                            <% end %>
+                        </td>
+                        <td class="text-center">
+                            <button class="bg-rose-600 px-2 py-1 text-white rounded-[10%] hover:bg-rose-500 ">
+                                <%= link_to "Delete", item_path(item), data: {confirm: "Really?", turbo_method: :delete} %>
+                            </button>
+                        </td>
+                    </tr>
+                    <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
