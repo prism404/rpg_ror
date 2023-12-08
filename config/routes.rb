@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get "/inventory", to: "inventory#index"
 
   resource :session
   resource :registration
