@@ -1,15 +1,34 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 # db/seeds.rb
-sword = Reward.create(name: "Sword of Power", description: "A mighty sword", reward_type: "Sword", stat_value: 10)
-staff = Reward.create(name: "Frost Staff", description: "It's just a frost staff", reward_type: "Staff", stat_value: 8)
-shield = Reward.create(name: "Steel Shield", description: "A sturdy shield", reward_type: "Shield", stat_value: 15)
-# Add more rewards as needed
+sword = Reward.create(
+  name: 'Excalibur',
+  category: :sword,
+  attack: 10,
+  defense: 2,
+  description: 'A legendary sword that can cut through enemies with ease.'
+)
+
+armor = Reward.create(
+  name: 'Knight Armor',
+  category: :armor,
+  attack: 2,
+  defense: 10,
+  description: 'Durable armor worn by valiant knights, providing excellent defense.'
+)
+
+staff = Reward.create(
+  name: 'Wizard Staff',
+  category: :staff,
+  attack: 8,
+  defense: 1,
+  description: 'A magical staff that amplifies the power of spells and incantations.'
+)
+
+shield = Reward.create(
+  name: 'Steel Shield',
+  category: :shield,
+  attack: 1,
+  defense: 8,
+  description: 'A sturdy shield crafted from steel, offering reliable protection in battle.'
+)
+
+puts 'Rewards created!'

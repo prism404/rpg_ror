@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resource :password
 
   resources :quests
+  resources :enigmas
+
+  resource :game_master
+
+  resources :rewards, only: [:index, :show]
 
   # Defines the root path route ("/")
   root "main#index"

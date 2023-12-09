@@ -2,19 +2,63 @@
     <div class="flex items-center justify-center h-screen">
         <img src="/assets/quests/parchment.png" class="w-[40em]"/>
         <div class="absolute grid grid-rows-1 gap-8 place-content-center text-black">
-            <div class="mb-[2em]">
-                <p id="questTitle" class="text-2xl font-bold"><%= @quest.title %></p>
+            <div class="mb-2">
+                <p id="questTitle" class="text-2xl text-[#5CD2E6] font-bold"><%= @quest.name %></p>
             </div>
-            <div class="mb-[1em]">
-                <p class="text-xl font-bold">Exp: <%= @quest.exp %></p>
+            <div class="mb-2">
+                <p class="text-xl text-[#213555] font-bold">Exp: <%= @quest.exp %></p>
             </div>
-            <div class="mb-[1em] w-[20em] h-[10em]">
-                <p class="text-xl font-bold break-normal">" <%= @quest.description %> "</p>
+            <div class="mb-2 w-[20em] max-h-[8em]">
+                <p class="text-xl text-[#5C476F] font-bold break-normal"><%= @quest.description %></p>
+            </div>
+            <div class="mb-2 w-[20em] p-2">
+                <p id="questTitle" class="text-xl font-bold">Rewards</p>
+                <div class="mt-4 grid grid-cols-1 gap-2">
+                    <button class="text-[#7386D5]" id="reward1"><%= @quest.reward_1.name %></button>
+                    <button class="text-[#7386D5]" id="reward2"><%= @quest.reward_2.name %></button>
+                    <button class="text-[#7386D5]" id="reward3"><%= @quest.reward_3.name %></button>
+                </div>
             </div>
             <div class="flex justify-center mt-2">
-                <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
+                <button class="hover:text-[#CD5C08] text-black p-2 ps-3 pe-3">
                     <%= link_to 'Back', quests_path %>
                 </button>
+            </div>
+
+            <div id="popup-overlay-reward1">
+                <div id="popup1">
+                    <div class="grid grid-cols-1 gap-4">
+                        <p class="text-[#FFC436]"> <%= @quest.reward_1.name %></p>
+                        <p class="text-[#FF5151]">Attack : <%= @quest.reward_1.attack %> </p>
+                        <p class="text-[#5CD2E6]">Defense : <%= @quest.reward_1.defense %> </p>
+                        <p class="w-[20em] text-[#EEEDED]"> <%= @quest.reward_1.description %> </p>
+                    </div>
+                    <div class="text-[#C51605]" id="popup-close1">X</div>
+                </div>
+            </div>
+
+            <div id="popup-overlay-reward2">
+                <div id="popup2">
+                    <div class="grid grid-cols-1 gap-4">
+                        <p class="text-[#FFC436]"> <%= @quest.reward_1.name %></p>
+                        <p class="text-[#FF5151]">Attack : <%= @quest.reward_1.attack %> </p>
+                        <p class="text-[#5CD2E6]">Defense : <%= @quest.reward_1.defense %> </p>
+                        <p class="w-[20em] text-[#EEEDED]"> <%= @quest.reward_1.description %> </p>
+                    </div>
+                    <div class="text-[#C51605]" id="popup-close2">X</div>
+                </div>
+            </div>
+
+            <div id="popup-overlay-reward3">
+                <div id="popup3">
+                    <div class="grid grid-cols-1 gap-4">
+                        <p class="text-[#FFC436]"> <%= @quest.reward_1.name %></p>
+                        <p class="text-[#FF5151]">Attack : <%= @quest.reward_1.attack %> </p>
+                        <p class="text-[#5CD2E6]">Defense : <%= @quest.reward_1.defense %> </p>
+                        <p class="w-[20em] text-[#EEEDED]"> <%= @quest.reward_1.description %> </p>
+                    </div>
+                    <div class="text-[#C51605]" id="popup-close3">X</div>
+                </div>
             </div>
         </div>
     </div>

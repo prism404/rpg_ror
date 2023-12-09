@@ -1,0 +1,18 @@
+<%= form_with model: @enigma, url: enigmas_path, method: :post do |form| %>
+    <%= form.label :question %>
+    <%= form.text_field :question %>
+  
+    <%= form.label :response1 %>
+    <%= form.text_field :response1 %>
+  
+    <%= form.label :response2 %>
+    <%= form.text_field :response2 %>
+  
+    <%= form.label :response3 %>
+    <%= form.text_field :response3 %>
+  
+    <%= form.label :correct_response %>
+    <%= form.select :correct_response, [['Response 1', 'response1'], ['Response 2', 'response2'], ['Response 3', 'response3']] %>
+  
+    <%= form.submit 'Create Enigma' %>
+<% end %>
