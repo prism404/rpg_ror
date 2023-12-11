@@ -1,8 +1,11 @@
 <div class="flex justify-center text-slate-700">
+    <%= link_to game_master_path do %>
+        <i class="fas fa-arrow-left relative left-[150%] top-4 text-[40px] hover:scale-125"></i>
+    <% end %>
     <div class="w-[80vw]">
         <h1 class="text-center text-2xl my-4">List of item</h1>
         <%= link_to new_item_path() do %>
-            <button class="ml-10 bg-cyan-300 p-2 rounded-[7%]">Add new item</button>
+            <button class="ml-40 bg-cyan-300 p-2 rounded-[7%] bold">Add new item</button>
         <% end %>
         <table class="bg-slate-400 w-[100%] mt-4">
             <thead>
