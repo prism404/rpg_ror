@@ -5,30 +5,30 @@
             <p class="text-2xl text-black font-bold mb-2">QUETS AVALAIBLE</p>
             <table class="mb-[5em] text-black min-w-full">
                 <thead class="font-semibold">
-                    <th scope="col" class="px-2 py-2">Title</th>
+                    <th scope="col" class="px-2 py-2">Name</th>
                     <th scope="col" class="px-2 py-2">Exp</th>
                     <th scope="col" class="px-2 py-2">Description</th>
                     <th scope="col" class="px-2 py-2">Action</th>
                 </thead>
                 <% @quests.each do |quest| %>
                 <tbody class="font-medium border border-[#363062]">
-                    <td class="whitespace-nowrap px-2 py-2 w-[10em]"><%= quest.title%></td>
+                    <td class="whitespace-nowrap px-2 py-2 w-[10em]"><%= quest.name %></td>
                     <td class="whitespace-nowrap px-2 py-2 w-[10em]"><%= quest.exp %></td>
                     <td class="px-2 py-2 truncate max-w-[28em]"><%= quest.description %></td>
                     <td class="whitespace-nowrap px-2 py-2 w-[10em]">
-                        <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
-                            <%= link_to 'Open', quest %>
+                        <button>
+                            <%= link_to 'Open', quest, class:'p-2 hover:text-[#508D69]' %>
                         </button>
-                        <button class="bg-[#001524] hover:bg-[#CD0404] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
-                            <%= link_to 'Delete', quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <button >
+                            <%= button_to 'Delete', quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' }, class: 'p-2 hover:text-[#B31312]', remote: true %>
                         </button>
                     </td>
                 </tbody>
                 <% end %>   
             </table>
             <div class="flex justify-center mt-2">
-                <button class="bg-[#001524] hover:bg-[#CD5C08] text-white p-2 ps-3 pe-3 border border-[#CD5C08] rounded-full shadow">
-                    <%= link_to 'New Quest', new_quest_path %>
+                <button class="hover:text-[#CD5C08] text-black p-2 ps-3 pe-3">
+                    <%= link_to 'new Quest', new_quest_path %>
                 </button>
             </div>
         </div>    

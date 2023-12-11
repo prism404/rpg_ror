@@ -10,20 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_06_095421) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_08_151602) do
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "inventories", force: :cascade do |t|
-    t.integer "id_user"
-    t.integer "id_item"
-    t.integer "id_save"
+  create_table "enigmas", force: :cascade do |t|
+    t.string "question"
+    t.string "correct_response"
+    t.string "response1"
+    t.string "response2"
+    t.string "response3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer "id_user"
+    t.integer "id_save"
+    t.integer "id_item"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -32,28 +42,29 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_095421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "categorie"
-    t.string "stats"
+    t.integer "stats"
   end
 
   create_table "quests", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.text "description"
     t.integer "exp"
+    t.integer "reward_1_id"
+    t.integer "reward_2_id"
+    t.integer "reward_3_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "reward1_id"
-    t.integer "reward2_id"
-    t.integer "reward3_id"
-    t.index ["reward1_id"], name: "index_quests_on_reward1_id"
-    t.index ["reward2_id"], name: "index_quests_on_reward2_id"
-    t.index ["reward3_id"], name: "index_quests_on_reward3_id"
+    t.index ["reward_1_id"], name: "index_quests_on_reward_1_id"
+    t.index ["reward_2_id"], name: "index_quests_on_reward_2_id"
+    t.index ["reward_3_id"], name: "index_quests_on_reward_3_id"
   end
 
   create_table "rewards", force: :cascade do |t|
     t.string "name"
+    t.string "category"
+    t.integer "attack"
+    t.integer "defense"
     t.text "description"
-    t.string "reward_type"
-    t.integer "stat_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,7 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_095421) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "quests", "rewards", column: "reward1_id"
-  add_foreign_key "quests", "rewards", column: "reward2_id"
-  add_foreign_key "quests", "rewards", column: "reward3_id"
+  add_foreign_key "quests", "rewards", column: "reward_1_id"
+  add_foreign_key "quests", "rewards", column: "reward_2_id"
+  add_foreign_key "quests", "rewards", column: "reward_3_id"
 end

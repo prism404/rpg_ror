@@ -7,8 +7,12 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'popup', media: 'all' %>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'popup', :defer=> "defer" %>
+
   </head>
 
   <body class="container">
