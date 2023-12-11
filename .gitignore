@@ -1,7 +1,5 @@
 log/development.log
-storage/development.sqlite3
-storage/development.sqlite3-shm
-storage/development.sqlite3-wal
+storage/*
 tmp/cache/
 tmp/local_secret.txt
 tmp/restart.txt
