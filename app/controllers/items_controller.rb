@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController 
+    
     def index
-        @items = Item.all()
+        @items = Item.all().order(name: :asc)
     end 
 
     # VIEW POUR LA CREATION D'ITEM , [SUBMITION] => METHOD "create"  
