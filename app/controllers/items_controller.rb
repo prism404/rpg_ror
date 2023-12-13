@@ -36,8 +36,12 @@ class ItemsController < ApplicationController
 
     # SUPPRESSION D'ITEM PAR "id" DANS LA TABLE "item" 
     def destroy
-        @item = Item.find(params[:id])
-        @item.destroy
+        item = Item.find(params[:id])
+        item.destroy
+
+        inventory = Inventory.find_by(id_item: params[:id])
+        inventory.destroy
+
         redirect_to(items_path())
     end
 
