@@ -2,9 +2,6 @@
     <video autoplay muted loop id="bg_video" class="absolute w-auto h-screen object-fill">
         <source src="/assets/common/northern-village.mp4" type="video/mp4">
     </video>
-    <div class="absolute w-8 top-4 right-4 cursor-pointer">
-        <img src="/assets/home/sound-bar.png">
-    </div>
 
     <% if user_signed_in? %>
         <%= link_to "Edit Password", edit_password_path %>
@@ -58,21 +55,21 @@
             <div class="relative">
                 <div class="flex justify-center">
                 <img src="/assets/common/button_proto2.png" class="w-80">
-                <%= link_to "New Player", new_registration_path, class: "absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
+                <%= link_to "New Player", new_registration_path, class: "custom_link absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
             </div>
         </div>
 
         <div class="relative my-2">
             <div class="flex justify-center">
                 <img src="/assets/common/button_proto2.png" class="w-80">
-                <%= link_to "Continue", new_session_path, class:"absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
+                <%= link_to "Continue", new_session_path, class:"custom_link absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
             </div>
         </div>
       
         <div class="relative">
             <div class="flex justify-center">
                 <img src="/assets/common/button_proto2.png" class="w-80">
-                <div class="absolute top-6 text-2xl text-white hover:text-[#7C54c6] cursor-pointer">
+                <div class="custom_link absolute top-6 text-2xl text-white hover:text-[#7C54c6] cursor-pointer">
                     <%= link_to "Game Master", game_master_path %>
                 </div>
             </div>

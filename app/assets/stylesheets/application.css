@@ -15,7 +15,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Aclonica', sans-serif;
-    cursor: url('/public/assets/cursor_lighter.png'), auto;
+    cursor: url('/assets/cursor/cursor_lighter.png'), auto;
 }
 
 img,
@@ -42,6 +42,12 @@ h4,
 h5,
 h6 {
     overflow-wrap: break-word;
+}
+
+a, 
+button, 
+.custom_link{
+    cursor: url('/assets/cursor/cursor_outline_white.png'), auto;
 }
 
 #root,
