@@ -30,5 +30,14 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+.message {
+    margin-top: 10px;
   }
+  
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+}
   

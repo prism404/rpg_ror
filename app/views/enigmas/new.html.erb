@@ -1,18 +1,34 @@
-<%= form_with model: @enigma, url: enigmas_path, method: :post do |form| %>
-    <%= form.label :question %>
-    <%= form.text_field :question %>
-  
-    <%= form.label :response1 %>
-    <%= form.text_field :response1 %>
-  
-    <%= form.label :response2 %>
-    <%= form.text_field :response2 %>
-  
-    <%= form.label :response3 %>
-    <%= form.text_field :response3 %>
-  
-    <%= form.label :correct_response %>
-    <%= form.select :correct_response, [['Response 1', 'response1'], ['Response 2', 'response2'], ['Response 3', 'response3']] %>
-  
-    <%= form.submit 'Create Enigma' %>
-<% end %>
+<div class="overflow-hidden text-center bg-[url('/assets/quests/mountains6.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen">
+        <img src="/assets/gameMaster/old-parchment.png" class="w-[60em] rotate-90"/>
+        <p class="absolute top-20 mb-4 text-2xl text-black font-bold">New Enigma</p>
+
+        <div class="absolute">
+            <%= form_with model: @enigma, url: enigmas_path, method: :post do |form| %>
+                <div class="grid grid-rows-1 gap-4 mt-4 place-content-center">
+                    <%= form.label :question, class: 'block text-black font-medium' %>
+                    <%= form.text_area :question, class: 'h-[5em] mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+
+                    <%= form.label :exp, class: 'block text-black font-medium' %>
+                    <%= form.number_field :exp, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+
+                    <%= form.label :response1, class: 'block text-black font-medium' %>
+                    <%= form.text_field :response1, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+                
+                    <%= form.label :response2, class: 'block text-black font-medium' %>
+                    <%= form.text_field :response2, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+                
+                    <%= form.label :response3, class: 'block text-black font-medium' %>
+                    <%= form.text_field :response3, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+                
+                    <%= form.label :correct_response, class: 'block text-black font-medium mt-4' %>
+                    <%= form.text_field :correct_response, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+                </div>
+                
+                <button class="relative bottom-0 hover:text-[#CD5C08] mt-14 text-black">
+                    <%= form.submit 'Create Enigma' %>
+                </button>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -9,8 +9,6 @@ class CreateQuests < ActiveRecord::Migration[7.1]
       t.references :reward_2, foreign_key: { to_table: :rewards }
       t.references :reward_3, foreign_key: { to_table: :rewards }
 
-      # Add other columns as needed
-
       t.timestamps
     end
   end
