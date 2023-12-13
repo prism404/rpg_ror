@@ -8,19 +8,18 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'popup', media: 'all' %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" %>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <%= javascript_include_tag "https://cdn.tailwindcss.com" %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag 'popup', :defer=> "defer" %>
 
   </head>
 
-  <body class="">
+  <body class="container">
     <div><%= notice %></div>
     <div><%= alert %></div>
-
-
-    <main>
+    <main class="w-full h-screen overflow-auto">
       <%= yield %>
     </main>
   </body>

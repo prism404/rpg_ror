@@ -28,6 +28,24 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_131422) do
     t.integer "exp"
   end
 
+  create_table "inventories", force: :cascade do |t|
+    t.integer "id_user"
+    t.integer "id_save"
+    t.integer "id_item"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "categorie"
+    t.integer "stats"
+  end
+
   create_table "quests", force: :cascade do |t|
     t.string "name"
     t.text "description"
