@@ -1,18 +1,24 @@
-<table id="inventory" class="bg-slate-500 w-[15%] relative top-[5%] hidden">
+<table 
+    id="inventory" 
+    class="bg-slate-500 w-[15%] relative top-[5%] hidden"
+    data-controller="inventory"
+    >
     <tbody class="w-full max-h-[80%] overflow-auto  ">
         <% count = 1; @arr.each do |data| %>          
             <% if count == 1 %> 
                 <tr>
             <% end %>
                     <td class="w-1/4 h-[8vh] border">
-                        <div class="flex justify-center items-center h-[100%] w-full">
-                            <img
-                                class="origin-center hover:rotate-12 hover:scale-125" 
-                                src="assets/PNG_inventaire/<%= data['path'] %>.png" 
-                                alt="item"
-                            >
-                            <span class="text-xs relative top-[20%] left-[10%]"><%= data['quantity'] %></span>
-                        </div>  
+                        <%= link_to inventory_path(data), data: { turbo_method: :put } do %>
+                            <div class="flex justify-center items-center h-[100%] w-full">
+                                <img
+                                    class="origin-center hover:rotate-12 hover:scale-125" 
+                                    src="assets/PNG_inventaire/<%= data['path'] %>.png" 
+                                    alt="item"
+                                >
+                                <span class="text-xs relative top-[20%] left-[10%]"><%= data['quantity'] %></span>
+                            </div>  
+                        <% end %>
                     </td>    
             <% if count == 4 %> 
                 </tr>
