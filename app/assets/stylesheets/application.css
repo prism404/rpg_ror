@@ -50,6 +50,14 @@ button,
     cursor: url('/assets/cursor/cursor_outline_white.png'), auto;
 }
 
+input {
+    outline: none;
+}
+
+input:focus {
+    border: none !important;
+}
+
 #root,
 #__next {
     isolation: isolate;
