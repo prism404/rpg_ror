@@ -5,9 +5,9 @@ class CreateQuests < ActiveRecord::Migration[7.1]
       t.text :description
       t.integer :exp
       
-      t.references :reward_1, foreign_key: { to_table: :rewards }
-      t.references :reward_2, foreign_key: { to_table: :rewards }
-      t.references :reward_3, foreign_key: { to_table: :rewards }
+      t.references :item_1, foreign_key: { to_table: :items }
+      t.references :item_2, foreign_key: { to_table: :items }
+      t.references :item_3, foreign_key: { to_table: :items }
 
       t.timestamps
     end

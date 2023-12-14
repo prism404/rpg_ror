@@ -3,7 +3,7 @@ before_action :set_quest, only: %i[show edit update destroy]
   
   def index
     @quests = Quest.all
-    @rewards = Reward.all
+    @items = Item.all
   end
   
   def show
@@ -47,6 +47,6 @@ before_action :set_quest, only: %i[show edit update destroy]
   end
   
   def quest_params
-    params.require(:quest).permit(:name, :description, :exp, :reward_1_id, :reward_2_id, :reward_3_id)
+    params.require(:quest).permit(:name, :description, :exp, :item_1_id, :item_2_id, :item_3_id)
   end
 end

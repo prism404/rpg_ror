@@ -10,22 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_12_102830) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "enigmas", force: :cascade do |t|
-    t.string "question"
-    t.string "correct_response"
-    t.string "response1"
-    t.string "response2"
-    t.string "response3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "exp"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -43,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_102830) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "categorie"
+    t.text "description"
     t.integer "stats"
   end
 
@@ -50,24 +40,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_102830) do
     t.string "name"
     t.text "description"
     t.integer "exp"
-    t.integer "reward_1_id"
-    t.integer "reward_2_id"
-    t.integer "reward_3_id"
+    t.integer "item_1_id"
+    t.integer "item_2_id"
+    t.integer "item_3_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reward_1_id"], name: "index_quests_on_reward_1_id"
-    t.index ["reward_2_id"], name: "index_quests_on_reward_2_id"
-    t.index ["reward_3_id"], name: "index_quests_on_reward_3_id"
-  end
-
-  create_table "rewards", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.integer "attack"
-    t.integer "defense"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["item_1_id"], name: "index_quests_on_item_1_id"
+    t.index ["item_2_id"], name: "index_quests_on_item_2_id"
+    t.index ["item_3_id"], name: "index_quests_on_item_3_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,7 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_102830) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "quests", "rewards", column: "reward_1_id"
-  add_foreign_key "quests", "rewards", column: "reward_2_id"
-  add_foreign_key "quests", "rewards", column: "reward_3_id"
+  add_foreign_key "quests", "items", column: "item_1_id"
+  add_foreign_key "quests", "items", column: "item_2_id"
+  add_foreign_key "quests", "items", column: "item_3_id"
 end
