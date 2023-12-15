@@ -28,9 +28,9 @@
               <%= form.text_area :description, class: 'bg-transparent shadow appearance-none border rounded w-[20em]  h-[6em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
             </div>
             <div class="w-25 grid gap-1 grid-rows-3">
-              <%= form.collection_select :reward_1_id, Reward.all, :id, :name, prompt: 'Select Reward 1', class: 'bg-black shadow appearance-none border rounded w-25' %>
-              <%= form.collection_select :reward_2_id, Reward.all, :id, :name, prompt: 'Select Reward 2' %>
-              <%= form.collection_select :reward_3_id, Reward.all, :id, :name, prompt: 'Select Reward 3' %>
+              <%= form.collection_select :item_1_id, Item.all, :id, :name, prompt: 'Select item 1' %>
+              <%= form.collection_select :item_2_id, Item.all, :id, :name, prompt: 'Select item 2' %>
+              <%= form.collection_select :item_3_id, Item.all, :id, :name, prompt: 'Select item 3' %>
             </div>
 
             <div class="flex justify-center">
