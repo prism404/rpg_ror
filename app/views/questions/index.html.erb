@@ -5,37 +5,40 @@
             <p class="text-2xl text-black font-bold mb-2">ENIGMAS AVALAIBLE</p>
             <table class="mb-[5em] text-black min-w-full">
                 <thead class="font-semibold">
-                    <th scope="col" class="px-4 py-2">Question</th>
-                    <th scope="col" class="px-4 py-2">Exp</th>
-                    <th scope="col" class="px-4 py-2">Good Answer</th>
-                    <th scope="col" class="px-4 py-2">Response 1</th>
-                    <th scope="col" class="px-4 py-2">Response 2</th>
-                    <th scope="col" class="px-4 py-2">Response 3</th>
-                    <th scope="col" class="px-4 py-2">Action</th>
-
+                    <tr>
+                        <th scope="col" class="px-4 py-2">Question</th>
+                        <th scope="col" class="px-4 py-2">Exp</th>
+                        <th scope="col" class="px-4 py-2">Good Answer</th>
+                        <th scope="col" class="px-4 py-2">Response 1</th>
+                        <th scope="col" class="px-4 py-2">Response 2</th>
+                        <th scope="col" class="px-4 py-2">Response 3</th>
+                        <th scope="col" class="px-4 py-2">Action</th>
+                    </tr>
                 </thead>
-                <% @questions.each do |enigma| %>
-                    <tbody class="font-medium border border-[#363062]">
-                        <td class="px-4 py-2 p-2 truncate max-w-[20em]"><%= enigma.question %></td>
-                        <td class="px-4 py-2 truncate max-w-[22em]"><%= enigma.exp %></td>
-                        <td class="px-4 py-2 truncate max-w-[22em]">response <%= enigma.choice %></td>
-                        <% choices = @choice.where(id_question: enigma.id) %>
-                        <% choices.each do |choice| %>
-                            <td class="px-4 py-2 truncate max-w-[22em]"><%= choice.respons %></td>
-                        <% end %> 
-                        <td>   
-                            <button>
-                                <%= link_to 'Open', enigma, class:'p-2 hover:text-[#508D69]' %>
-                            </button>
-                            <button >
-                                <%= button_to 'Delete', question_path(enigma), method: :delete, data: { confirm: 'Are you sure?' }, class: 'p-2 hover:text-[#B31312]', remote: true %>
-                            </button>
-                        </td>
-                    </tbody>
-                <% end %>   
+                <tbody class="font-medium border border-[#363062]">
+                    <% @questions.each do |question| %>
+                        <tr>
+                            <td class="px-4 py-2 p-2 truncate max-w-[20em]"><%= question.question %></td>
+                            <td class="px-4 py-2 truncate max-w-[22em]"><%= question.exp %></td>
+                            <td class="px-4 py-2 truncate max-w-[22em]">response <%= question.choice %></td>
+                            <% choices = @choice.where(id_question: question.id) %>
+                            <% choices.each do |choice| %>
+                                <td class="px-4 py-2 truncate max-w-[22em]"><%= choice.respons %></td>
+                            <% end %> 
+                            <td class="px-2">   
+                                <button class="p-2 hover:text-[#508D69]">
+                                    <%= link_to 'Open', question_path(question)%>
+                                </button>
+                                <button class="hover:text-red-500" >
+                                    <%= link_to 'Delete', question_path(question), data: {confirm: "Really?", turbo_method: :delete} %>
+                                </button>
+                            </td>
+                        <tr>
+                    <% end %>   
+                </tbody>
             </table>
             <div class="flex justify-center mt-2">
-                <button class="hover:text-[#CD5C08] text-black p-2 ps-3 pe-3">
+                <button class="hover:text-teal-600 text-black p-2 ps-3 pe-3">
                     <%= link_to 'new enigma', new_question_path %>
                 </button>
             </div>

@@ -3,26 +3,30 @@
     <% end %>
 <div class="flex justify-center">
     <div class="mt-10" >
-       <%= form_with model: @item, local: true do |form| %>
+       <%= form_with model: @item, local: true do |f| %>
        <h1 class="text-2xl text-center mb-4">Item</h1>
-            <div class='mb-4 flex flex-col items-center' >
-                <%= form.label(:path, class: "")%>
-                <%= form.text_field(:path, class: "") %>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label(:path, class: "")%>
+                <%= f.text_field(:path, class: "border") %>
             </div>
              <div class='mb-4 flex flex-col items-center'>
-                <%= form.label(:name, class: "") %>
-                <%= form.text_field(:name, class: "") %>
+                <%= f.label(:name, class: "") %>
+                <%= f.text_field(:name, class: "border") %>
             </div>
             <div class='mb-4 flex flex-col items-center'>
-                <%= form.label :categorie %>
-                <%= form.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "w-full py-2 text-center"})%>
+                <%= f.label :categorie %>
+                <%= f.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "w-full py-2 text-center border"})%>
             </div>
-             <div class='mb-4 flex flex-col items-center'>
-                <%= form.label :stats %>
-                <%= form.number_field :stats %>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label :stats %>
+                <%= f.number_field :stats, class: "border text-center w-[50%]", min: 0 %>
+            </div>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label :description %>
+                <%= f.text_area :description, class: "border text-center" %>
             </div>
             <div class='mb-4 flex justify-center'>
-                <%= form.submit("Create item", class: "bg-green-500 p-2 rounded-[7%] cursor-pointer hover:bg-green-400") %>
+                <%= f.submit("Create item", class: "bg-green-500 p-2 rounded-[7%] cursor-pointer hover:bg-green-400") %>
             </div>
        <% end %>
     </div>
