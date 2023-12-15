@@ -64,4 +64,7 @@ shield = Reward.create(
   description: 'A sturdy shield crafted from steel, offering reliable protection in battle.'
 )
 
+Question.destroy_all()
+Choice.destroy_all()
+
 puts 'Rewards created!'

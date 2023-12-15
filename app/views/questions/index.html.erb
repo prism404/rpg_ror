@@ -1,0 +1,44 @@
+<div class="overflow-hidden text-white text-center bg-[url('/assets/quests/interior7.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen p-[13em]">
+    <img src="/assets/gameMaster/old-parchment.png" class=""/>
+        <div class="absolute">
+            <p class="text-2xl text-black font-bold mb-2">ENIGMAS AVALAIBLE</p>
+            <table class="mb-[5em] text-black min-w-full">
+                <thead class="font-semibold">
+                    <th scope="col" class="px-4 py-2">Question</th>
+                    <th scope="col" class="px-4 py-2">Exp</th>
+                    <th scope="col" class="px-4 py-2">Good Answer</th>
+                    <th scope="col" class="px-4 py-2">Response 1</th>
+                    <th scope="col" class="px-4 py-2">Response 2</th>
+                    <th scope="col" class="px-4 py-2">Response 3</th>
+                    <th scope="col" class="px-4 py-2">Action</th>
+
+                </thead>
+                <% @questions.each do |enigma| %>
+                    <tbody class="font-medium border border-[#363062]">
+                        <td class="px-4 py-2 p-2 truncate max-w-[20em]"><%= enigma.question %></td>
+                        <td class="px-4 py-2 truncate max-w-[22em]"><%= enigma.exp %></td>
+                        <td class="px-4 py-2 truncate max-w-[22em]">response <%= enigma.choice %></td>
+                        <% choices = @choice.where(id_question: enigma.id) %>
+                        <% choices.each do |choice| %>
+                            <td class="px-4 py-2 truncate max-w-[22em]"><%= choice.respons %></td>
+                        <% end %> 
+                        <td>   
+                            <button>
+                                <%= link_to 'Open', enigma, class:'p-2 hover:text-[#508D69]' %>
+                            </button>
+                            <button >
+                                <%= button_to 'Delete', question_path(enigma), method: :delete, data: { confirm: 'Are you sure?' }, class: 'p-2 hover:text-[#B31312]', remote: true %>
+                            </button>
+                        </td>
+                    </tbody>
+                <% end %>   
+            </table>
+            <div class="flex justify-center mt-2">
+                <button class="hover:text-[#CD5C08] text-black p-2 ps-3 pe-3">
+                    <%= link_to 'new enigma', new_question_path %>
+                </button>
+            </div>
+        </div>    
+    </div>   
+</div>
