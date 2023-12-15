@@ -2,6 +2,11 @@
     <div class="flex items-center justify-center h-screen">
         <img src="/assets/gameMaster/old-parchment.png" class="w-[60%] rotate-90"/>
         <div class="absolute w-[30%]">
+            <div class="text-left">
+                <%= link_to questions_path do %>
+                    <i class="fas fa-arrow-left text-[40px] text-black text-left hover:scale-125"></i>
+                <% end %>
+            </div>
             <h1 class="mb-4 text-2xl text-black font-bold">New Enigma</h1>
             <%= form_with model: @questions, local:true do |f| %>
                 <div class='mb-4 flex flex-col items-center' >  

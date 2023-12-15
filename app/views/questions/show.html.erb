@@ -3,7 +3,7 @@
         <img src="/assets/gameMaster/old-parchment.png" class="w-[65em]"/>
         <div class="absolute grid grid-rows-1 gap-8 place-content-center text-black">
             <div class="mb-2">
-                <p id="questTitle" class="text-2xl  w-[20em] font-bold"><%= @enigma.question %></p>
+                <p id="questTitle" class="text-2xl font-bold"><%= @enigma.question %></p>
             </div>
             <div class="mb-2">
                 <p id="questTitle" class="text-2xl font-bold">Exp : <%= @enigma.exp %></p>
@@ -11,7 +11,7 @@
             <% choices = @choice.where(id_question: @enigma.id) %>
             <% choices.each do |choice| %>
                 <div class="mb-2">
-                    <p class="text-xl text-[#5C476F] font-bold"><%= choice.respons %></p>
+                    <p class="text-xl text-[#5C476F] font-bold"><%= choice.choice %> : <%= choice.respons %></p>
                 </div>
             <% end %>
             <div class="mb-2 text-xl text-[#527853] font-bold">

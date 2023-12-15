@@ -1,29 +1,34 @@
 <div class="overflow-hidden text-white text-center bg-[url('/assets/quests/interior7.png')] h-screen bg-cover bg-center bg-no-repeat">
-    <div class="flex items-center justify-center h-screen p-[13em]">
-    <img src="/assets/gameMaster/old-parchment.png" class=""/>
-        <div class="absolute">
-            <p class="text-2xl text-black font-bold mb-2">ENIGMAS AVALAIBLE</p>
-            <table class="mb-[5em] text-black min-w-full">
+    <div class="flex justify-center  mx-[10%] my-[2%] h-screen">
+        <img src="/assets/gameMaster/old-parchment.png" class="w-full h-[90%]"/>
+        <div class="absolute mt-[2%]  w-[70%]">
+            <div class="text-left">
+                <%= link_to game_master_path do %>
+                    <i class="fas fa-arrow-left text-[40px] text-black text-left hover:scale-125"></i>
+                <% end %>
+            </div>
+            <p class="text-2xl text-black font-bold mb-6">ENIGMAS AVALAIBLE</p>
+            <table class="mb-[5em] ml-auto mr-auto text-black w-full">
                 <thead class="font-semibold">
                     <tr>
-                        <th scope="col" class="px-4 py-2">Question</th>
-                        <th scope="col" class="px-4 py-2">Exp</th>
-                        <th scope="col" class="px-4 py-2">Good Answer</th>
-                        <th scope="col" class="px-4 py-2">Response 1</th>
-                        <th scope="col" class="px-4 py-2">Response 2</th>
-                        <th scope="col" class="px-4 py-2">Response 3</th>
-                        <th scope="col" class="px-4 py-2">Action</th>
+                        <th class="px-[2vw]">Question</th>
+                        <th class="px-[1vw]">Exp</th>
+                        <th class="px-[1vw]">Good Answer</th>
+                        <th class="px-[2vw]">Response 1</th>
+                        <th class="px-[2vw]">Response 2</th>
+                        <th class="px-[2vw]">Response 3</th>
+                        <th class="px-[2vw]">Action</th>
                     </tr>
                 </thead>
                 <tbody class="font-medium border border-[#363062]">
                     <% @questions.each do |question| %>
                         <tr>
-                            <td class="px-4 py-2 p-2 truncate max-w-[20em]"><%= question.question %></td>
-                            <td class="px-4 py-2 truncate max-w-[22em]"><%= question.exp %></td>
-                            <td class="px-4 py-2 truncate max-w-[22em]">response <%= question.choice %></td>
+                            <td class=""><%= question.question %></td>
+                            <td class=""><%= question.exp %></td>
+                            <td class="">response <%= question.choice %></td>
                             <% choices = @choice.where(id_question: question.id) %>
                             <% choices.each do |choice| %>
-                                <td class="px-4 py-2 truncate max-w-[22em]"><%= choice.respons %></td>
+                                <td class="break-all"><%= choice.respons %></td>
                             <% end %> 
                             <td class="px-2">   
                                 <button class="p-2 hover:text-[#508D69]">
