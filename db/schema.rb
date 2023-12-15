@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_15_124340) do
   create_table "choices", force: :cascade do |t|
     t.string "respons"
     t.integer "id_question"
@@ -64,6 +64,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
     t.index ["item_1_id"], name: "index_quests_on_item_1_id"
     t.index ["item_2_id"], name: "index_quests_on_item_2_id"
     t.index ["item_3_id"], name: "index_quests_on_item_3_id"
+  end
+
+  create_table "save_parties", force: :cascade do |t|
+    t.integer "id_user"
+    t.integer "id_character"
+    t.integer "stat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

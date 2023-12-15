@@ -1,6 +1,6 @@
 require "test_helper"
 
-class EnigmaTest < ActiveSupport::TestCase
+class SavePartyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

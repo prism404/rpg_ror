@@ -6,7 +6,7 @@ export default class extends Controller {
 
         // LES VARIABLE
 
-        const key = document.getElementsByClassName("container");
+        const key = document.getElementsByTagName("main");
         const element = this.element
         let count = 1;
 

@@ -1,0 +1,2 @@
+class SaveParty < ApplicationRecord
+end
