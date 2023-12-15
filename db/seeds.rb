@@ -4,7 +4,7 @@ Item.destroy_all
 Inventory.destroy_all
 Question.destroy_all
 Choice.destroy_all
-
+User.destroy_all
 [
   ["Arrow", "Arrow", "weapon", "Forged by the ancient Elven archers, known for their unerring accuracy", 20],
   ["Axe", "Axe", "weapon", "A battle-worn axe, rumored to have cleaved through the shields of giants", 30],
