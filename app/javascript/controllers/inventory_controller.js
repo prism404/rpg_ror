@@ -6,14 +6,14 @@ export default class extends Controller {
 
         // LES VARIABLE
 
-        const key = document.getElementsByTagName("main");
+        const key = document.getElementById("body");
         const element = this.element
         let count = 1;
 
 
 
         // ECOUTE D'EVENEMENT
-        key[0].addEventListener('keypress', open_close_invetory);
+        key.addEventListener('keypress', open_close_invetory);
         
 
 
@@ -35,7 +35,6 @@ export default class extends Controller {
         function open_close_invetory(e) {
             if (e.keyCode == 32) {
                 count++
-                console.log(count);
                 
                 if (count % 2 == 0) {
                     element.classList.remove("hidden")
