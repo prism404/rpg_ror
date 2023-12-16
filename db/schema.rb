@@ -69,7 +69,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_15_124340) do
   create_table "save_parties", force: :cascade do |t|
     t.integer "id_user"
     t.integer "id_character"
+    t.integer "etap"
     t.integer "stat"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

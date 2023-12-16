@@ -1,0 +1,26 @@
+<div class="text-center mt-10">
+    <% if current_user %>
+        <%= form_for @save, :html => {class: "mt-20"} do |f| %>
+        <h1 class="bold text-2xl underline mb-10">Save your party</h1>
+            <table class="ml-auto mr-auto">
+                <thead>
+                    <tr>
+                        <th class="px-4">description</th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr>
+                        <td>
+                            <%= f.text_area :content, class: "border px-2" %>
+                        </td>
+                    </tr>
+            </table>
+            <div class='mt-10'>
+                <%= f.submit("Save", class: "bg-green-500 p-2 rounded-[7%] cursor-pointer hover:bg-green-400") %>
+            </div>      
+        <% end %>
+    <% end %>
+</div>
+<% if flash.notice %>
+    <%= flash.notice %>
+<% end %>

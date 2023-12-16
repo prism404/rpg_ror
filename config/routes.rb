@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # INVENTORY
   get "/inventory", to: "inventory#index"
   put "/inventory", to: "inventory#update"
 
@@ -10,10 +11,9 @@ Rails.application.routes.draw do
   resources :quests
   resources :items , only: [:index, :show, :new, :edit, :create, :update, :destroy] 
   resources :questions
-
   resource :game_master
-
   resources :rewards, only: [:index, :show]
+  resources :save_parties
 
   # Defines the root path route ("/")
   root "main#index"

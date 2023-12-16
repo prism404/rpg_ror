@@ -1,0 +1,33 @@
+<%= link_to "Edit Password" , edit_password_path %>
+<div class="relative left-6">
+    <%= button_to session_path, method: :delete do %>
+        <img src="/assets/home/close_shield.png" class="w-10 absolute right-12 -top-2">
+    <% end %>
+</div>
+
+<div class="relative flex justify-center">
+    <img src="/assets/home/button_proto1.png" class="w-80">
+    <%= link_to "New character", new_save_party_path,
+        class: "absolute top-8 text-2xl text-white hover:text-[#7C54c6] cursor-pointer" %>
+</div>
+
+<div class="relative pt-3 mx-32 cursor-pointer">
+    <div class="bg-slate-950/50 w-850">
+        <ul>
+            <% @saveParty.each do |party| %>
+                <li class="flex">
+                    <div>
+                        <img src="/assets/common/tree_of_life2.jpg" class="w-48">
+                        <progress value="0" max="100" id="hp_bar" class="w-48"></progress>
+                    </div>
+                    <div class="flex flex-col justify-center ml-6">
+                        <div class="character_name text-white text-3xl"><%= party.content %></div>
+                        <div class="date_game text-white text-md"><%= party.updated_at %></div>
+                        <div class="last_quest text-white">Last Quest : </div>
+                    </div>
+                </li>
+            <% end %>    
+        </ul>
+      
+    </div>
+</div>
