@@ -35,6 +35,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_194612) do
     t.integer "hp"
     t.integer "attack"
     t.integer "defense"
+ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
+  create_table "choices", force: :cascade do |t|
+    t.string "respons"
+    t.integer "id_question"
+    t.integer "choice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,6 +80,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_194612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_parties_on_user_id"
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.integer "choice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "exp"
   end
 
   create_table "quests", force: :cascade do |t|

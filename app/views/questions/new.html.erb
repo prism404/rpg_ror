@@ -1,0 +1,60 @@
+<div class="overflow-hidden text-center bg-[url('/assets/quests/mountains6.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen">
+        <img src="/assets/gameMaster/old-parchment.png" class="w-[60%] rotate-90"/>
+        <div class="absolute w-[30%]">
+            <div class="text-left">
+                <%= link_to questions_path do %>
+                    <i class="fas fa-arrow-left text-[40px] text-black text-left hover:scale-125"></i>
+                <% end %>
+            </div>
+            <h1 class="mb-4 text-2xl text-black font-bold">New Enigma</h1>
+            <%= form_with model: @questions, local:true do |f| %>
+                <div class='mb-4 flex flex-col items-center' >  
+                    <%= f.label(:question, class: "")%>
+                    <%= f.text_field(:question, 
+                        class: "h-auto bg-transparent shadow appearance-none border 
+                        rounded w-[80%] py-2 px-3 text-gray-700 leading-tight focus:outline-none 
+                        focus:shadow-outline") 
+                    %>
+                </div>
+                <div class='mb-4 flex flex-col items-center' >
+                    <%= f.label("choice_1", class: "")%>
+                    <%= f.text_field("choice_1", 
+                        class: "bg-transparent shadow appearance-none border 
+                        rounded w-[20em] py-2 px-3 text-gray-700 leading-tight 
+                        focus:outline-none focus:shadow-outline text-center") 
+                    %>
+                </div>
+                <div class='mb-4 flex flex-col items-center' >
+                    <%= f.label("choice_2", class: "")%>
+                    <%= f.text_field("choice_2", 
+                        class: "bg-transparent shadow appearance-none border 
+                        rounded w-[20em] py-2 px-3 text-gray-700 leading-tight 
+                        focus:outline-none focus:shadow-outline text-center") 
+                    %>
+                </div>
+                <div class='mb-4 flex flex-col items-center' >
+                    <%= f.label("choice_3", class: "")%>
+                    <%= f.text_field("choice_3", 
+                        class: "bg-transparent shadow appearance-none border 
+                        rounded w-[20em] py-2 px-3 text-gray-700 leading-tight 
+                        focus:outline-none focus:shadow-outline text-center") 
+                    %>
+                </div>
+                <div class='mb-4 flex flex-col items-center'>
+                    <%= f.label "response choice" %>
+                    <%= f.select(:choice, [ 1, 2, 3 ], {}, 
+                        {class: "w-[30%] pt-2 text-center bg-transparent"}) 
+                    %>
+                </div>
+                 <div class='mb-4 flex flex-col items-center' >
+                    <%= f.label(:exp, class: "")%>
+                    <%= f.number_field(:exp, class: "text-center", min: 0) %>
+                </div>
+                <div class='mb-4 flex justify-center'>
+                    <%= f.submit("Create item", class: "bg-green-500 p-2 rounded-[7%] cursor-pointer hover:bg-green-400") %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,8 @@
 Item.destroy_all
+Inventory.destroy_all
+Question.destroy_all
+Choice.destroy_all
+User.destroy_all
 [
   ["Arrow", "Arrow", "weapon", "Forged by the ancient Elven archers, known for their unerring accuracy", 20],
   ["Axe", "Axe", "weapon", "A battle-worn axe, rumored to have cleaved through the shields of giants", 30],
@@ -24,7 +28,6 @@ Item.destroy_all
     Item.create!(path: path, name: name, categorie: category, description: description, stats: stats)
 end
 
-Inventory.destroy_all()
 Item.all().each do |data|
     Inventory.create!(id_user: 1, id_save: 1, id_item: data.id, quantity: 2)
 end
@@ -89,3 +92,4 @@ Archer.destroy_all
   Archer.create!(path: path, gender: gender)
 end
 
+puts 'Rewards created!'

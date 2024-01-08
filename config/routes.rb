@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource :password
   resources :quests
   resources :items , only: [:index, :show, :new, :edit, :create, :update, :destroy] 
-  resources :enigmas
+  resources :questions
 
   resource :game_master
   
