@@ -7,7 +7,7 @@
 
 <div class="relative flex justify-center">
     <img src="/assets/home/button_proto1.png" class="w-80">
-    <%= link_to "New character", new_save_party_path,
+    <%= link_to "New character", new_game_path,
         class: "absolute top-8 text-2xl text-white hover:text-[#7C54c6] cursor-pointer" %>
 </div>
 
@@ -23,7 +23,9 @@
                     <div class="flex flex-col justify-center ml-6">
                         <div class="character_name text-white text-3xl"><%= party.content %></div>
                         <div class="date_game text-white text-md"><%= party.updated_at %></div>
-                        <div class="last_quest text-white">Last Quest : </div>
+                        <% if defined?(party.last_quest) %>
+                            <div class="last_quest text-white">Last Quest : </div>
+                        <% end %>
                     </div>
                 </li>
             <% end %>    
