@@ -28,7 +28,9 @@
                 <div id="popup-overlay-reward<%= index + 1 %>">
                     <div id="popup<%= index + 1 %>">
                         <div class="grid grid-rows-1 gap-4 text-center">
+                        <div class="flex justify-center items-center"> 
                             <img src="/assets/PNG_inventaire/<%= item.path %>.png" alt="item">
+                        </div> 
                             <p class="text-[#FFC436]"> <%= item.name %></p>
                             <% case item.categorie %>
                             <% when "weapon" %>
@@ -36,7 +38,7 @@
                             <% when "knowledge" %>
                                 <p class="text-[#FF5151]">Knowledge: <%= item.stats %></p>
                             <% when "currency", "navigationalTool", "artifact", "mysticalTool", "container", "gemstone", "tool", "resource" %>
-                                <p class="text-[#FF5151]">Price: <%= item.stats %></p>
+                                <p class="text-[#FF5151]">Value: <%= item.stats %></p>
                             <% when "potion" %>
                                 <p class="text-[#FF5151]">Effect: <%= item.stats %></p>
                             <% else %>

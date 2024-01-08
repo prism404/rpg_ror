@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_07_194612) do
+  create_table "archers", force: :cascade do |t|
+    t.string "path"
+    t.string "gender"
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "classe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "exp", default: 0
+    t.string "gender"
+    t.string "image"
+    t.integer "user_id", null: false
+    t.index ["classe_id"], name: "index_characters_on_classe_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "classes", force: :cascade do |t|
+    t.string "category"
+    t.text "description"
+    t.integer "hp"
+    t.integer "attack"
+    t.integer "defense"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -36,6 +64,19 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
     t.integer "stats"
   end
 
+  create_table "mages", force: :cascade do |t|
+    t.string "path"
+    t.string "gender"
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parties_on_user_id"
+  end
+
   create_table "quests", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -57,6 +98,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_155223) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "warriors", force: :cascade do |t|
+    t.string "path"
+    t.string "gender"
+  end
+
+  add_foreign_key "characters", "classes", column: "classe_id"
+  add_foreign_key "characters", "users"
+  add_foreign_key "parties", "users"
   add_foreign_key "quests", "items", column: "item_1_id"
   add_foreign_key "quests", "items", column: "item_2_id"
   add_foreign_key "quests", "items", column: "item_3_id"

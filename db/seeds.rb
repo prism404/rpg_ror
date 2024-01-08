@@ -1,5 +1,3 @@
-# db/seeds.rb
-# Add more rewards as needed
 Item.destroy_all
 [
   ["Arrow", "Arrow", "weapon", "Forged by the ancient Elven archers, known for their unerring accuracy", 20],
@@ -18,8 +16,8 @@ Item.destroy_all
   ["Scroll", "Ancient Scroll", "knowledge", "Bears prophecies of old, scribed by the Oracle of Delphi", 25],
   ["Skull", "Cursed Skull", "artifact", "An ominous skull, said to be the remains of a forgotten dark sorcerer", 55],
   ["Stick", "Magic Stick", "weapon", "A seemingly ordinary stick, but in the right hands, it can summon wonders", 10],
-  ["Scarlet Heartstone", "Sun Stone", "gemstone", "A stone that radiates red like the blood of old gods, worshipped by the Scarlet cults", 100],
-  ["Nebula Amethyst", "Moon Stone", "gemstone", "Glowing softly in moonlight, it's believed to hold the essence of the moon goddess Amethyst", 120],
+  ["Nebula Amethyst", "Moon Stone", "gemstone", "A stone that radiates red like the blood of old gods, worshipped by the Scarlet cults", 100],
+  ["Scarlet Heartstone", "Sun Stone", "gemstone", "Glowing softly in moonlight, it's believed to hold the essence of the moon goddess Amethyst", 120],
   ["Sword", "Sword of Kings", "weapon", "Once wielded by a legendary king, it's as sharp as the day it was forged", 40],
   ["Wand", "Elder Wand", "weapon", "An ancient wand that chooses its master, pulsating with a mysterious energy", 35]
 ].each do |(path, name, category, description, stats)|
@@ -30,3 +28,64 @@ Inventory.destroy_all()
 Item.all().each do |data|
     Inventory.create!(id_user: 1, id_save: 1, id_item: data.id, quantity: 2)
 end
+
+Classe.destroy_all
+[
+  ["Warrior", "A brave warrior adorned in heavy armor, wielding a mighty sword", 100, 20, 30],
+  ["Mage", "A wise sorcerer with knowledge of ancient spells and mystical arts", 100, 20, 15],
+  ["Archer", "A stealthy marksman skilled in taking down enemies from a distance", 100, 20, 10]
+].each do |(category, description, hp, attack, defense)|
+  Classe.create!(category: category, description: description, hp: hp, attack: attack, defense: defense)
+end
+
+# Seeding Warriors
+Warrior.destroy_all
+[
+  ["male_warrior1", "male"],
+  ["male_warrior2", "male"],
+  ["male_warrior3", "male"],
+  ["male_warrior4", "male"],
+
+  ["female_warrior1", "female"],
+  ["female_warrior2", "female"],
+  ["female_warrior3", "female"],
+  ["female_warrior4", "female"],
+
+].each do |(path, gender)|
+  Warrior.create!(path: path, gender: gender)
+end
+
+# Seeding Mages
+Mage.destroy_all
+[
+  ["male_mage1", "male"],
+  ["male_mage2", "male"],
+  ["male_mage3", "male"],
+  ["male_mage4", "male"],
+
+  ["female_mage1", "female"],
+  ["female_mage2", "female"],
+  ["female_mage3", "female"],
+  ["female_mage4", "female"],
+
+].each do |(path, gender)|
+  Mage.create!(path: path, gender: gender)
+end
+
+# Seeding Archers
+Archer.destroy_all
+[
+  ["male_archer1", "male"],
+  ["male_archer2", "male"],
+  ["male_archer3", "male"],
+  ["male_archer4", "male"],
+
+  ["female_archer1", "female"],
+  ["female_archer2", "female"],
+  ["female_archer3", "female"],
+  ["female_archer4", "female"],
+
+].each do |(path, gender)|
+  Archer.create!(path: path, gender: gender)
+end
+
