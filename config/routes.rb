@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :questions
   resource :game_master
   resources :rewards, only: [:index, :show]
-  resources :save_parties
 
   # Defines the root path route ("/")
   root "main#index"
