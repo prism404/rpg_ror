@@ -1,42 +1,47 @@
 <div>
-    <video autoplay muted loop id="bg_video" class="absolute w-auto h-screen object-fill">
-        <source src="/assets/common/northern-village.mp4" type="video/mp4">
-    </video>
+    <div>
+        <img src="/assets/home/castle_proto_2.png" class="absolute w-full h-full object-cover">
+    </div>
 
-    <div class="flex flex-col relative justify-center text-center pt-28">
-        <h1 class="flex justify-center text-center">
-            <img src="/assets/home/logo1.png" class="w-1/4">
-        </h1>
-
-        <div class="flex justify-center">
-            <img src="/assets/common/separator.png" class="w-1/3">
+    <div class="flex flex-col relative justify-center text-center pt-12">
+        <div class="flex flex-col relative justify-center text-center pt-8">
+            <h1 class="flex justify-center text-center">
+                <img src="/assets/home/logo_proto_3_2.png" class="w-1/4">
+            </h1>
         </div>
 
-        <div class="relative">
-            <div class="flex justify-center">
-                <img src="/assets/common/button_proto2.png" class="w-80">
-                <p class="absolute top-6 text-2xl text-white hover:text-[#7C54c6]">Continue</p>
-            </div>
-        </div>
     </div>
     <br />
 
     <%= form_with model: @user, url: session_path do |form| %>
 
+        <div class="absolute top-4 left-4">
+            <%= link_to root_path do %>
+                <%= image_tag("/assets/home/button_exit.png", class: "w-1/2") %>
+            <% end %>
+        </div>
+
         <div class="relative flex flex-col justify-center text-center">
-            <div>
-                <%= form.email_field :email, placeholder: "Email", class:"bg-[#504099] border-2 border-white placeholder:text-white text-white ps-4 rounded-full text-sm w-60" %>
+
+            <div class="relative flex w-200 justify-center">
+                <div class="flex justify-center items-center">
+                    <img src="/assets/common/input_1.png" class="w-4/5">
+                <%= form.email_field :email, placeholder: "Email", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
+                </div>
             </div>
 
-            <div class="my-2">
-                <%= form.password_field :password, placeholder: "Password", class:"bg-[#504099] border-2 border-white placeholder:text-white text-white ps-4 rounded-full text-sm w-60" %>
+            <div class="relative flex w-200 justify-center my-2">
+                <div class="flex justify-center items-center">
+                    <img src="/assets/common/input_1.png" class="w-4/5">
+                <%= form.email_field :password, placeholder: "Password", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
+                </div>
             </div>
             <br />
 
             <div class="relative">
                 <div class="flex justify-center">
-                    <img src="/assets/common/button_proto2.png" class="w-80">
-                    <%= form.submit "Log in", class:"cursor-pointer absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
+                    <img src="/assets/home/button_home1.png" class="absolute -top-[35px] w-60">
+                    <%= form.submit "Login", class:"cursor-pointer absolute top-[25px] text-[20px] text-white hover:text-[#E92306]" %>
                 </div>
             </div>
         </div>

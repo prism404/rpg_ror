@@ -47,6 +47,12 @@ h6 {
     overflow-wrap: break-word;
 }
 
+a, 
+button, 
+.custom_link{
+    cursor: url('/assets/cursor/cursor_outline_white.png'), auto;
+}
+
 #root,
 #__next {
     isolation: isolate;
