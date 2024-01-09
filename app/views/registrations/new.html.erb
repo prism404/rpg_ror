@@ -14,29 +14,29 @@
 
         <div class="absolute top-4 left-4">
             <%= link_to root_path do %>
-                <%= image_tag("/assets/home/button_exit.png", class: "w-1/2") %>
+                <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
             <% end %>
         </div>
 
         <div class="flex flex-col text-center">
-            <div class="relative flex w-200 justify-center">
+            <div class="relative flex w-200 justify-center my-2">
                 <div class="flex justify-center items-center">
                     <img src="/assets/common/input_1.png" class="w-4/5">
-                <%= form.email_field :email, placeholder: "Email", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
+                <%= form.email_field :email, placeholder: "Email", class:"absolute bg-transparent border-none text-decoration-none ps-3 text-md font-medium w-60 placeholder:text-black focus:border-none" %>
                 </div>
             </div>
 
             <div class="relative flex w-200 justify-center my-2">
                 <div class="flex justify-center items-center">
                     <img src="/assets/common/input_1.png" class="w-4/5">
-                <%= form.email_field :password, placeholder: "Password", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
+                <%= form.password_field :password, placeholder: "Password", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
                 </div>
             </div>
 
             <div class="relative flex w-200 justify-center my-2">
                 <div class="flex justify-center items-center">
                     <img src="/assets/common/input_1.png" class="w-4/5">
-                <%= form.email_field :password_confirmation, placeholder: "Password Confirmation", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
+                <%= form.password_field :password_confirmation, placeholder: "Password Confirmation", class:"absolute bg-transparent border-none text-decoration-none ps-3 rounded-full text-md font-medium w-60 placeholder:text-black focus:border-none" %>
                 </div>
             </div>
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :quests
   resources :items , only: [:index, :show, :new, :edit, :create, :update, :destroy] 
   resources :enigmas
+  resources :npcs
 
   resource :game_master
 

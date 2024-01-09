@@ -1,0 +1,40 @@
+<div class="overflow-hidden text-center bg-[url('/assets/gameMaster/bg_gm_01.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex items-center justify-center h-screen">
+        <p class="absolute top-20 mb-4 text-2xl text-black font-bold">New Npc</p>
+
+        <div class="absolute top-4 left-4">
+        <%= link_to game_master_path do %>
+            <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
+        <% end %>
+        </div>
+
+        <div class="absolute">
+            <%= form_with model: @npc, url: npcs_path, method: :post do |form| %>
+                <div class="grid grid-rows-1 gap-4 mt-4 place-content-center">
+                    <div class="image-preview">
+                        <% if @npc && @npc.avatar.present? %>
+                            <%= image_tag("npc/#{@npc.avatar}", class: 'preview-image') %>
+                        <% end %>
+                    </div>
+
+                    <%= form.label :avatar, class: 'block text-black font-medium' %>
+                    <%= form.select :avatar, options_for_select(@avatar_options.map { |avatar| [avatar, avatar] }), {}, class: 'mb-4' %>
+
+                    <%= form.label :name, class: 'block text-black font-medium' %>
+                    <%= form.text_field :name, class: 'h-[5em] mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+
+                    <%= form.label :health_points, class: 'block text-black font-medium' %>
+                    <%= form.number_field :health_points, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+
+                    <div class="flex flex-col justify-center items-center">
+                        <button class="relative bottom-0 hover:text-[#CD5C08] font-semibold text-white">
+                            <img src="/assets/home/button_home1.png" class="relative w-60 custom_link">
+                            <%= form.submit 'Create Npc', class:"relative -top-[94px] custom_link" %>
+                        </button>
+                    </div>
+                </div>
+                        
+            <% end %>
+        </div>
+    </div>
+</div>
