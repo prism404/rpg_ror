@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  male_image: MyString
-  female_image: MyString
+  path: MyString
+  gender: MyString
 
 two:
-  male_image: MyString
-  female_image: MyString
+  path: MyString
+  gender: MyString

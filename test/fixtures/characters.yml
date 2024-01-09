@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  classe: one
 
 two:
   name: MyString
-  classe: two

@@ -8,9 +8,12 @@ class CharactersController < ApplicationController
   def new
     @character = Character.new
     @classes = Classe.all
-    @warriors = Warrior.all
-    @mages = Mage.all
-    @archers = Archer.all
+    @warriors_male = Warrior.where(gender: "male")
+    @warriors_female = Warrior.where(gender: "female")
+    @mages_male = Mage.where(gender:"male")
+    @mages_female = Mage.where(gender:"female")
+    @archers_male = Archer.where(gender:"male")
+    @archers_female = Archer.where(gender:"female")
   end
 
   def create
