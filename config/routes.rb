@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'characters/new'
+  get 'characters/create'
 
   # INVENTORY
   get "/inventory", to: "inventory#index"
@@ -13,7 +15,13 @@ Rails.application.routes.draw do
   resources :questions
   resource :game_master
   resources :rewards, only: [:index, :show]
+  
+  resources :characters
+  resources :parties
 
+  get '/game_map/:id', to: 'game_map#show', as: 'game_map'
+
+  
   # Defines the root path route ("/")
   root "main#index"
 end

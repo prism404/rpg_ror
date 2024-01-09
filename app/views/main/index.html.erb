@@ -1,11 +1,8 @@
-<div>
-    <video autoplay muted loop id="bg_video" class="absolute object-fill">
-        <source src="/assets/common/northern-village.mp4" type="video/mp4">
-    </video>
+<div class="overflow-hidden text-center bg-[url('/assets/players/mountains1.png')] h-screen bg-cover bg-center bg-no-repeat">
+
     <div class="absolute w-8 top-4 right-4 cursor-pointer">
         <img src="/assets/home/sound-bar.png">
     </div>
- 
     <% if user_signed_in? %>
         <%= render  "user_page" %>
     <% else %>

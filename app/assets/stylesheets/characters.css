@@ -1,0 +1,18 @@
+.gender-radio-button, .class-radio-button{
+    display: none;
+}
+
+.character-image { 
+    width: 200px;
+    clip-path: circle(18% at 50% 26%);
+}
+
+#selected-character-image {
+    /* Your styles here */
+    max-width: 200px; /* Example: limit the image width */
+    margin-top: 20px; /* Spacing */
+}
+
+.warrior-image-container {
+    display: flex !important;
+}
