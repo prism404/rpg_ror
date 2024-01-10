@@ -1,11 +1,18 @@
 <div class="overflow-hidden text-center bg-[url('/assets/quests/mountains6.png')] h-screen bg-cover bg-center bg-no-repeat">
+
+    <div class="absolute top-4 left-4">
+        <%= link_to game_master_path do %>
+            <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
+        <% end %>
+    </div>
+    
     <div class="flex items-center justify-center h-screen">
         <img src="/assets/gameMaster/old-parchment.png" class="w-[60em] rotate-90"/>
-        <p class="absolute top-20 mb-4 text-2xl text-black font-bold">New Enigma</p>
+        <p class="absolute top-[30px] mb-4 text-2xl text-black font-bold">New Enigma</p>
 
-        <div class="absolute">
+        <div class="absolute top-[100px]">
             <%= form_with model: @enigma, url: enigmas_path, method: :post do |form| %>
-                <div class="grid grid-rows-1 gap-4 mt-4 place-content-center">
+                <div class="grid grid-rows-1 gap-2 place-content-center">
                     <%= form.label :question, class: 'block text-black font-medium' %>
                     <%= form.text_area :question, class: 'h-[5em] mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 
@@ -25,9 +32,12 @@
                     <%= form.text_field :correct_response, class: 'mb-4 bg-transparent shadow appearance-none border rounded w-[20em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
                 </div>
                 
-                <button class="relative bottom-0 hover:text-[#CD5C08] mt-14 text-black">
-                    <%= form.submit 'Create Enigma' %>
-                </button>
+                <div class="relative flex justify-center items-center">
+                    <img src="/assets/home/button_home3.png" class="w-[200px] custom_link">
+                        <button class="absolute text-white hover:text-[#E92306]">
+                            <%= form.submit 'Create Enigma', class: "custom_link" %>
+                        </button>
+                </div>
             <% end %>
         </div>
     </div>

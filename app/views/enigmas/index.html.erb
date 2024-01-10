@@ -1,4 +1,11 @@
 <div class="overflow-hidden text-white text-center bg-[url('/assets/quests/interior7.png')] h-screen bg-cover bg-center bg-no-repeat">
+
+    <div class="absolute top-4 left-4">
+        <%= link_to game_master_path do %>
+            <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
+        <% end %>
+    </div>
+
     <div class="flex items-center justify-center h-screen p-[13em]">
     <img src="/assets/gameMaster/old-parchment.png" class=""/>
         <div class="absolute">
@@ -33,9 +40,10 @@
                 </tbody>
                 <% end %>   
             </table>
-            <div class="flex justify-center mt-2">
-                <button class="hover:text-[#CD5C08] text-black p-2 ps-3 pe-3">
-                    <%= link_to 'new enigma', new_enigma_path %>
+            <div class="relative flex justify-center mt-2">
+                <img src="assets/home/button_home3.png" class="w-[200px]">
+                <button>
+                    <%= link_to 'new enigma', new_enigma_path, class: "absolute top-[51px] left-[342px] text-white hover:text-[#E92306]" %>
                 </button>
             </div>
         </div>    
