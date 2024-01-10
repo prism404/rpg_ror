@@ -1,5 +1,5 @@
 Item.destroy_all
-User.destroy_all
+Classe.destroy_all
 Choice.destroy_all
 Question.destroy_all
 Inventory.destroy_all
@@ -7,6 +7,7 @@ Classe.destroy_all
 Warrior.destroy_all
 Mage.destroy_all
 Archer.destroy_all
+# User.destroy_all
 
 [
   ["Arrow", "Arrow", "weapon", "Forged by the ancient Elven archers, known for their unerring accuracy", 20],

@@ -14,6 +14,9 @@
     <div class="border border-emerald-300">
 
 
+    <%= form.hidden_field :image, id: 'selected-image-path' %>
+
+
   <div class="grid grid-cols-2 w-[30%] ml-auto mr-auto mb-4 mt-[10%]">
             <div class="text-2xl">
                 <%= form.radio_button :gender, 'male', checked: true, class: 'gender-radio-button' %>
@@ -154,16 +157,44 @@
             <% end %>
         </div>
 
+
+        <div class="grid grid-rows-1 gap-4 place-content-center">
+            <%= form.label :name, class: 'block text-[#e8ca9f] font-medium' %>
+            <%= form.text_field :name, class: 'bg-transparent shadow appearance-none border rounded w-[11em] py-2 px-3 text-[#e8ca9f] leading-tight focus:outline-none focus:shadow-outline' %>
+        </div>
+
+
         <div class="bottom-10 mt-10">
-            <%= form.submit "Continue", class: "ml-8 p-2 px-8 bg-[#db863b] rounded" %>
+            <%= form.submit "Continue", class: "p-2 px-8 bg-[#db863b] rounded" %>
         </div>
 
 
     </div>
 
 
-    <div class="flex justify-center items-center">
-        <img id="selected-character-image" src="/assets/classes/warriors/male/male_warrior3.png" class="w-[50%]" alt="Selected Character" />    
+    <div class="">
+        <img 
+            id="selected-character-image" 
+            src="/assets/classes/warriors/male/male_warrior3.png" 
+            class="w-[45%] ml-auto mr-auto" 
+            alt="Selected Character" 
+        />    
+        <div class="mt-3">
+            <% @classes.each do |classe| %>
+                <div 
+                    id="class-info-<%= classe.category.downcase %>" 
+                    class="class-info" 
+                    style="display: none"
+                >
+                    <div class="grid grid-cols-3">
+                        <p class="text-[#d83522]">HP: <%= classe.hp %></p>
+                        <p class="text-[#7ab4cb]">Attack: <%= classe.attack %></p>
+                        <p class="text-[#2d9b78]">Defense: <%= classe.defense %></p>
+                    </div>
+                    <p class="text-[#e8ca9f]"><%= classe.description %></p>
+                </div>
+            <% end %>
+        </div>
     </div>
 
 

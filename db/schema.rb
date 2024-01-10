@@ -20,14 +20,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_101252) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.integer "classe_id"
+    t.string "classe"
     t.integer "exp"
     t.string "gender"
     t.string "image"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["classe_id"], name: "index_characters_on_classe_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
