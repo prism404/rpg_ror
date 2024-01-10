@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap');
 
 *,
 *::before,
@@ -14,8 +16,8 @@ body {
     overflow: hidden;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    font-family: 'Aclonica', sans-serif;
-    cursor: url('/public/assets/cursor_lighter.png'), auto;
+    font-family: 'Cinzel', serif;
+    cursor: url('/assets/cursor/cursor_lighter.png'), auto;
 }
 
 img,
@@ -32,6 +34,7 @@ button,
 textarea,
 select {
     font: inherit;
+    outline: none;
 }
 
 p,
@@ -44,8 +47,22 @@ h6 {
     overflow-wrap: break-word;
 }
 
+a, 
+button, 
+.custom_link{
+    cursor: url('/assets/cursor/cursor_outline_white.png'), auto;
+}
+
 #root,
 #__next {
     isolation: isolate;
 }
 
+.image-preview {
+    margin-top: 10px;
+}
+
+.preview-image {
+    max-width: 100px;
+    max-height: 100px;
+}

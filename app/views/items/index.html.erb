@@ -1,13 +1,22 @@
-<div class="flex justify-center text-slate-700">
-    <%= link_to game_master_path do %>
-        <i class="fas fa-arrow-left relative left-[150%] top-4 text-[40px] hover:scale-125"></i>
-    <% end %>
+<div style="background: url('/assets/home/castle_proto_3.png') no-repeat center center fixed; background-size: cover;">
+    <div class="flex justify-center text-white">
+
+    <div class="absolute top-4 left-4">
+        <%= link_to root_path do %>
+            <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
+        <% end %>
+    </div>
+
     <div class="w-[80vw]">
         <h1 class="text-center text-2xl my-4">List of item</h1>
-        <%= link_to new_item_path() do %>
-            <button class="ml-40 bg-cyan-300 p-2 rounded-[7%] bold">Add new item</button>
-        <% end %>
-        <table class="bg-slate-400 w-[100%] mt-4">
+        <div class="relative">
+            <%= link_to new_item_path() do %>
+                <img src="/assets/home/buttons/menu_button_01.png" class="custom_link">
+                <button class="absolute top-[15px] left-[38px] rounded-[7%] text-[13px] bold custom_link">Add new item</button>
+            <% end %>
+        </div>
+        
+        <table class="bg-black/50 w-[100%] mt-4">
             <thead>
                 <tr>
                     <th class="h-[8vh]">id</th>
@@ -56,4 +65,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>

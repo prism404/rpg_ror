@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // popup button for reward 
   var popupButton1 = document.getElementById('reward1');
+  if (!popupButton1) return;
   var popupOverlay1 = document.getElementById('popup-overlay-reward1');
   var popupButton2 = document.getElementById('reward2');
   var popupOverlay2 = document.getElementById('popup-overlay-reward2');

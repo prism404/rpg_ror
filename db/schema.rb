@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_101252) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
   create_table "archers", force: :cascade do |t|
     t.string "path"
     t.string "gender"
@@ -78,6 +78,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_101252) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "npcs", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "health_points"
+    t.string "avatar"
   end
 
   create_table "parties", force: :cascade do |t|

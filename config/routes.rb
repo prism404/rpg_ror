@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :quests
   resources :items , only: [:index, :show, :new, :edit, :create, :update, :destroy] 
   resources :questions
+  resources :npcs
+
   resource :game_master
   resources :rewards, only: [:index, :show]
   
