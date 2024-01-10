@@ -12,7 +12,7 @@
             <img src="/assets/common/title_bar_01.png">
             <h1 class="absolute top-[22px] left-[160px] text-2xl text-white text-center mb-4">Item</h1>
         </div>
-            <div class='mb-4 flex flex-col items-center' >
+            <div class='mb-4 flex flex-col items-center'>
                 <%= form.label(:path, class: "")%>
                 <%= form.text_field(:path, class: "") %>
             </div>
@@ -22,7 +22,7 @@
             </div>
              <div class='mb-4 flex flex-col items-center'>
                 <%= form.label :categorie %>
-                <%= form.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "w-full py-2 text-center"})%>
+                <%= form.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "py-2 text-center w-[220px]"})%>
             </div>
              <div class='mb-4 flex flex-col items-center'>
                 <%= form.label :stats %>
