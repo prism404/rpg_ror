@@ -1,4 +1,11 @@
 <div class="overflow-hidden text-white text-center bg-[url('/assets/quests/mountains6.png')] h-screen bg-cover bg-center bg-no-repeat">
+    
+    <div class="absolute top-4 left-4">
+        <%= link_to quests_path do %>
+            <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
+        <% end %>
+    </div>
+    
     <div class="flex items-center justify-center h-screen">
         <img src="/assets/quests/parchment.png" class="w-[40em]"/>
         <p class="absolute top-[130px] text-2xl text-black font-bold">New Quest</p>
