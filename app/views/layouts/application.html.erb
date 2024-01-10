@@ -11,6 +11,7 @@
 
     <%= javascript_include_tag "https://cdn.tailwindcss.com" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'play_pause' %>
     <%= javascript_include_tag 'popup', :defer=> "defer" %>
 
   </head>
@@ -20,6 +21,14 @@
     <div class="bg-black text-red-700"><%= alert %></div>
     <main class="w-full h-screen overflow-hidden">
       <%= yield %>
+      <audio id="audio_player" style="display: none;" controls>
+        <source src="/assets/girei.mp3" type="audio/mpeg">
+      </audio>
+
+      <div class="absolute top-[13px] right-4">
+          <img src="/assets/home/play_button.png" id="play_button" class="w-14 custom_link" onclick="toggle_play_pause()">
+          <img src="/assets/home/pause_button.png" id="pause_button" style="display: none;" class="w-14 custom_link" onclick="toggle_play_pause()">
+      </div>
     </main>
   </body>
 </html>
