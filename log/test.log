@@ -14,3 +14,126 @@
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
   [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '67fbb2bf722876864e47af3aa967f4d6a4f7b2b1', '2023-11-16 15:12:50.194311', '2023-11-16 15:12:50.194313') RETURNING "key"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "emails"[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "emails" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "enigmas"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "enigmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "correct_response" varchar, "response1" varchar, "response2" varchar, "response3" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "exp" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "inventories"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "inventories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "id_user" integer, "id_save" integer, "id_item" integer, "quantity" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "items"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "path" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "categorie" varchar, "stats" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "npcs"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "npcs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "quests"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "quests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "exp" integer, "reward_1_id" integer, "reward_2_id" integer, "reward_3_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_1_id" ON "quests" ("reward_1_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_2_id" ON "quests" ("reward_2_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_3_id" ON "quests" ("reward_3_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "rewards"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "rewards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "category" varchar, "attack" integer, "defense" integer, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "exp" integer DEFAULT NULL, "reward_1_id" integer DEFAULT NULL, "reward_2_id" integer DEFAULT NULL, "reward_3_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_3_id" ON "aquests" ("reward_3_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_2_id" ON "aquests" ("reward_2_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_1_id" ON "aquests" ("reward_1_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquests" ("id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at")
+                     SELECT "id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at" FROM "quests"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "quests"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "quests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "exp" integer DEFAULT NULL, "reward_1_id" integer DEFAULT NULL, "reward_2_id" integer DEFAULT NULL, "reward_3_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f1fcf2653"
+FOREIGN KEY ("reward_1_id")
+  REFERENCES "rewards" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_1_id" ON "quests" ("reward_1_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_2_id" ON "quests" ("reward_2_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_3_id" ON "quests" ("reward_3_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "quests" ("id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at")
+                     SELECT "id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at" FROM "aquests"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aquests"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "exp" integer DEFAULT NULL, "reward_1_id" integer DEFAULT NULL, "reward_2_id" integer DEFAULT NULL, "reward_3_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_3_id" ON "aquests" ("reward_3_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_2_id" ON "aquests" ("reward_2_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_1_id" ON "aquests" ("reward_1_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquests" ("id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at")
+                     SELECT "id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at" FROM "quests"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "quests"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "quests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "exp" integer DEFAULT NULL, "reward_1_id" integer DEFAULT NULL, "reward_2_id" integer DEFAULT NULL, "reward_3_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f1fcf2653"
+FOREIGN KEY ("reward_1_id")
+  REFERENCES "rewards" ("id")
+, CONSTRAINT "fk_rails_f65da14734"
+FOREIGN KEY ("reward_2_id")
+  REFERENCES "rewards" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_1_id" ON "quests" ("reward_1_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_2_id" ON "quests" ("reward_2_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_3_id" ON "quests" ("reward_3_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "quests" ("id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at")
+                     SELECT "id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at" FROM "aquests"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquests"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "exp" integer DEFAULT NULL, "reward_1_id" integer DEFAULT NULL, "reward_2_id" integer DEFAULT NULL, "reward_3_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_3_id" ON "aquests" ("reward_3_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_2_id" ON "aquests" ("reward_2_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aquests_on_reward_1_id" ON "aquests" ("reward_1_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquests" ("id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at")
+                     SELECT "id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at" FROM "quests"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "quests"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "quests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "exp" integer DEFAULT NULL, "reward_1_id" integer DEFAULT NULL, "reward_2_id" integer DEFAULT NULL, "reward_3_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f65da14734"
+FOREIGN KEY ("reward_2_id")
+  REFERENCES "rewards" ("id")
+, CONSTRAINT "fk_rails_2f1fcf2653"
+FOREIGN KEY ("reward_1_id")
+  REFERENCES "rewards" ("id")
+, CONSTRAINT "fk_rails_2cc8217c9e"
+FOREIGN KEY ("reward_3_id")
+  REFERENCES "rewards" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_1_id" ON "quests" ("reward_1_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_2_id" ON "quests" ("reward_2_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quests_on_reward_3_id" ON "quests" ("reward_3_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "quests" ("id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at")
+                     SELECT "id","name","description","exp","reward_1_id","reward_2_id","reward_3_id","created_at","updated_at" FROM "aquests"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquests"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240109045042)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231212102830),
+(20231208151602),
+(20231206110538),
+(20231206110416),
+(20231206091237),
+(20231205133348),
+(20231205100008),
+(20231107152730),
+(20231107152707);[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-01-10 12:17:38.025175', '2024-01-10 12:17:38.025181') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '4331715d83195a5199a2e66545f33920966898bf', '2024-01-10 12:17:38.028542', '2024-01-10 12:17:38.028546') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
