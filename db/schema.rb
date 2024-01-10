@@ -54,6 +54,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "enigmas", force: :cascade do |t|
+    t.string "question"
+    t.string "correct_response"
+    t.string "response1"
+    t.string "response2"
+    t.string "response3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "exp"
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.integer "id_user"
     t.integer "id_save"
@@ -66,11 +77,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "path"
-    t.string "categorie"
-    t.text "description"
-    t.integer "stats"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "categorie"
+    t.integer "stats"
   end
 
   create_table "mages", force: :cascade do |t|
@@ -109,14 +119,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
     t.string "name"
     t.text "description"
     t.integer "exp"
-    t.integer "item_1_id"
-    t.integer "item_2_id"
-    t.integer "item_3_id"
+    t.integer "reward_1_id"
+    t.integer "reward_2_id"
+    t.integer "reward_3_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_1_id"], name: "index_quests_on_item_1_id"
-    t.index ["item_2_id"], name: "index_quests_on_item_2_id"
-    t.index ["item_3_id"], name: "index_quests_on_item_3_id"
+    t.index ["reward_1_id"], name: "index_quests_on_reward_1_id"
+    t.index ["reward_2_id"], name: "index_quests_on_reward_2_id"
+    t.index ["reward_3_id"], name: "index_quests_on_reward_3_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.integer "attack"
+    t.integer "defense"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -134,7 +154,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
   end
 
   add_foreign_key "parties", "users"
-  add_foreign_key "quests", "items", column: "item_1_id"
-  add_foreign_key "quests", "items", column: "item_2_id"
-  add_foreign_key "quests", "items", column: "item_3_id"
+  add_foreign_key "quests", "rewards", column: "reward_1_id"
+  add_foreign_key "quests", "rewards", column: "reward_2_id"
+  add_foreign_key "quests", "rewards", column: "reward_3_id"
 end
