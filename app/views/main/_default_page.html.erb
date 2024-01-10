@@ -1,28 +1,27 @@
-<div class="flex flex-col relative justify-center text-center pt-28">
-    <h1 class="flex justify-center text-center">
-        <img src="/assets/home/logo_proto_3_2.png" class="w-1/4">
-    </h1>
+<div class="flex flex-col relative justify-center text-center pt-8">
+            <h1 class="flex justify-center text-center">
+                <img src="/assets/home/logo_proto_3_2.png" class="w-[10%]">
+            </h1>
 
-    <div class="relative">
-        <div class="flex justify-center">
-            <img src="/assets/home/button_home1.png" class="w-80">
-            <%= link_to "New Player" , new_registration_path,
-                class: "absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
+            <div class="relative">
+                <div class="flex justify-center">
+                <img src="/assets/home/button_home1.png" class="relative w-80 -top-[50px]">
+                <%= link_to "New Player", new_registration_path, class: "absolute top-9 text-2xl text-white font-medium hover:text-[#E92306]" %>
+            </div>
         </div>
-    </div>
-</div>
-<div class="relative my-2">
-    <div class="flex justify-center">
-        <img src="/assets/home/button_home1.png" class="w-80">
-        <%= link_to "Continue" , new_session_path, class:"absolute top-6 text-2xl text-white hover:text-[#7C54c6]" %>
-    </div>
-</div>
 
-<div class="relative">
-    <div class="flex justify-center">
-        <img src="/assets/home/button_home1.png" class="w-80">
-        <div class="absolute top-6 text-2xl text-white hover:text-[#7C54c6] cursor-pointer">
-            <%= link_to "Game Master" , game_master_path %>
+        <div class="relative -top-[100px] my-2">
+            <div class="flex justify-center">
+                <img src="/assets/home/button_home1.png" class="relative w-80 -top-[50px]">
+                <%= link_to "Continue", new_session_path, class:"absolute top-9 text-2xl text-white font-medium hover:text-[#E92306]" %>
+            </div>
         </div>
-    </div>
-</div>
+      
+        <div class="relative -top-[203px]">
+            <div class="flex justify-center">
+                <img src="/assets/home/button_home1.png" class="relative w-80 -top-[50px]">
+                <div class="absolute top-9 text-2xl text-white font-medium hover:text-[#E92306] cursor-pointer">
+                    <%= link_to "Game Master", game_master_path %>
+                </div>
+            </div>
+        </div>
