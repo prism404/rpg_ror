@@ -11,6 +11,43 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
+  create_table "archers", force: :cascade do |t|
+    t.string "path"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.string "classe"
+    t.integer "exp"
+    t.string "gender"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.string "respons"
+    t.integer "id_question"
+    t.integer "choice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "classes", force: :cascade do |t|
+    t.string "category"
+    t.text "description"
+    t.integer "hp"
+    t.integer "attack"
+    t.integer "defense"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "emails", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -46,6 +83,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
     t.integer "stats"
   end
 
+  create_table "mages", force: :cascade do |t|
+    t.string "path"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "npcs", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -53,6 +97,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
     t.datetime "updated_at", null: false
     t.integer "health_points"
     t.string "avatar"
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parties_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.integer "choice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "exp"
   end
 
   create_table "quests", force: :cascade do |t|
@@ -86,6 +146,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_115811) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "warriors", force: :cascade do |t|
+    t.string "path"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "parties", "users"
   add_foreign_key "quests", "rewards", column: "reward_1_id"
   add_foreign_key "quests", "rewards", column: "reward_2_id"
   add_foreign_key "quests", "rewards", column: "reward_3_id"

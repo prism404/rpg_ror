@@ -1,29 +1,38 @@
-   <%= link_to items_path do %>
-        <i class="fas fa-arrow-left relative left-[5%] top-4 text-[40px] hover:scale-125"></i>
-    <% end %>
-<div class="flex justify-center">
+<div class="flex justify-center align-center items-center h-full" style="background: url('/assets/home/dark_forest_01.png') no-repeat center center fixed; background-size: cover;"> 
+    <div class="absolute top-4 left-4">
+        <%= link_to items_path do %>
+            <%= image_tag("/assets/home/close_button.png", class: "w-12") %>
+        <% end %>
+    </div>
+<div class="">
     <div class="mt-10" >
-       <%= form_with model: @item, local: true do |form| %>
+       <%= form_with model: @item, local: true do |f| %>
        <h1 class="text-2xl text-center mb-4">Item</h1>
-            <div class='mb-4 flex flex-col items-center' >
-                <%= form.label(:path, class: "")%>
-                <%= form.text_field(:path, class: "") %>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label(:path, class: "")%>
+                <%= f.text_field(:path, class: "border") %>
             </div>
              <div class='mb-4 flex flex-col items-center'>
-                <%= form.label(:name, class: "") %>
-                <%= form.text_field(:name, class: "") %>
+                <%= f.label(:name, class: "") %>
+                <%= f.text_field(:name, class: "border") %>
             </div>
-             <div class='mb-4 flex flex-col items-center'>
-                <%= form.label :categorie %>
-                <%= form.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "w-full py-2 text-center"})%>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label :categorie %>
+                <%= f.select(:categorie, ['none', 'weapon', 'shield', 'armor'], {}, {class: "w-full py-2 text-center border"})%>
             </div>
-             <div class='mb-4 flex flex-col items-center'>
-                <%= form.label :stats %>
-                <%= form.number_field :stats %>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label :stats %>
+                <%= f.number_field :stats, class: "border text-center w-[50%]", min: 0 %>
             </div>
-            <div class='mb-4 flex justify-center'>
-                <%= form.submit("Create item", class: "bg-green-500 p-2 rounded-[7%] cursor-pointer hover:bg-green-400") %>
+            <div class='mb-4 flex flex-col items-center'>
+                <%= f.label :description %>
+                <%= f.text_area :description, class: "border text-center" %>
             </div>
-       <% end %>
+            <div class='relative mb-4 flex justify-center'>
+                <img src="/assets/home/button_home3.png" class="w-[200px]">
+                <%= form.submit("Create item", class: "absolute top-[44px] p-2 text-white hover:text-[#E92306] custom_link") %>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>

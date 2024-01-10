@@ -1,0 +1,52 @@
+<div class="overflow-hidden text-white text-center bg-[url('/assets/quests/interior7.png')] h-screen bg-cover bg-center bg-no-repeat">
+    <div class="flex justify-center  mx-[10%] my-[2%] h-screen">
+        <img src="/assets/gameMaster/old-parchment.png" class="w-full h-[90%]"/>
+        <div class="absolute mt-[2%]  w-[70%]">
+            <div class="text-left">
+                <%= link_to game_master_path do %>
+                    <i class="fas fa-arrow-left text-[40px] text-black text-left hover:scale-125"></i>
+                <% end %>
+            </div>
+            <p class="text-2xl text-black font-bold mb-6">ENIGMAS AVALAIBLE</p>
+            <table class="mb-[5em] ml-auto mr-auto text-black w-full">
+                <thead class="font-semibold">
+                    <tr>
+                        <th class="px-[2vw]">Question</th>
+                        <th class="px-[1vw]">Exp</th>
+                        <th class="px-[1vw]">Good Answer</th>
+                        <th class="px-[2vw]">Response 1</th>
+                        <th class="px-[2vw]">Response 2</th>
+                        <th class="px-[2vw]">Response 3</th>
+                        <th class="px-[2vw]">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="font-medium border border-[#363062]">
+                    <% @questions.each do |question| %>
+                        <tr>
+                            <td class=""><%= question.question %></td>
+                            <td class=""><%= question.exp %></td>
+                            <td class="">response <%= question.choice %></td>
+                            <% choices = @choice.where(id_question: question.id) %>
+                            <% choices.each do |choice| %>
+                                <td class="break-all"><%= choice.respons %></td>
+                            <% end %> 
+                            <td class="px-2">   
+                                <button class="p-2 hover:text-[#508D69]">
+                                    <%= link_to 'Open', question_path(question)%>
+                                </button>
+                                <button class="hover:text-red-500" >
+                                    <%= link_to 'Delete', question_path(question), data: {confirm: "Really?", turbo_method: :delete} %>
+                                </button>
+                            </td>
+                        <tr>
+                    <% end %>   
+                </tbody>
+            </table>
+            <div class="flex justify-center mt-2">
+                <button class="hover:text-teal-600 text-black p-2 ps-3 pe-3">
+                    <%= link_to 'new enigma', new_question_path %>
+                </button>
+            </div>
+        </div>    
+    </div>   
+</div>

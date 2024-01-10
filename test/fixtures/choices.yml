@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  respons: MyString
+  id_question: 1
+  choice: 1
+
+two:
+  respons: MyString
+  id_question: 1
+  choice: 1

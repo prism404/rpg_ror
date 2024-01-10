@@ -1,0 +1,2 @@
+class Archer < ApplicationRecord
+end

@@ -1,0 +1,12 @@
+.gender-radio-button, .class-radio-button{
+    display: none;
+}
+
+.character-image { 
+    width: 300px;
+    clip-path: circle(18% at 50% 26%);
+}
+
+.warrior-image-container {
+    display: flex !important;
+}

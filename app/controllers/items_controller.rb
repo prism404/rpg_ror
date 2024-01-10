@@ -36,8 +36,14 @@ class ItemsController < ApplicationController
 
     # SUPPRESSION D'ITEM PAR "id" DANS LA TABLE "item" 
     def destroy
-        @item = Item.find(params[:id])
-        @item.destroy
+        item = Item.find(params[:id])
+        item.destroy
+
+        inventory = Inventory.where(id_item: params[:id])
+        if inventory.length > 0 
+            inventory.destroy_all
+        end
+        
         redirect_to(items_path())
     end
 
@@ -45,7 +51,7 @@ class ItemsController < ApplicationController
 
     # DEFINIER LES CHAMPS A UTILISER LORS DE LA MISE EN DB  
     def item_params
-        params.require(:item).permit(:path, :name, :categorie, :stats)
+        params.require(:item).permit(:path, :name, :categorie, :stats, :description)
     end
 
 end

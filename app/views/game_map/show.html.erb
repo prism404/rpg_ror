@@ -1,0 +1,44 @@
+<div class="overflow-hidden bg-[url('/assets/players/map/map.png')] h-screen bg-cover bg-center bg-no-repeat">
+  <div class="text-left pt-4">
+    <%= link_to root_path do %>
+      <i class="fas fa-arrow-left text-[40px] text-left hover:scale-125 ml-8"></i>
+    <% end %>
+  </div>
+
+  <!-- Display information about the party or game state -->
+  <div>
+    <p>Party ID: <%= @party.id %></p>
+    <!-- Add more details about the party and game state -->
+  </div>
+  <div class="flex items-center justify-center w-screen h-screen">
+      <span class="relative mr-[28%] mb-20">
+        <%= link_to sagittariu_path do %>
+          <img src="/assets/players/map/sagittarius.png" class="w-10" alt="item">
+        <% end %>
+      </span>
+      <span class="relative mr-[5%] mb-[20%]">
+        <%= link_to scorpio_path do %>
+          <img src="/assets/players/map/scorpio.png" class="w-10" alt="item">
+        <% end %>
+      </span>
+
+
+      <span class="relative mr-[3%]">
+        <%= link_to gemini_path do %>
+          <img src="/assets/players/map/gemini.png" class="w-10" alt="item">
+        <% end %>
+      </span>
+      <span class="relative mr-[8%] mb-[40%]">
+         <%= link_to aquariu_path do %>
+          <img src="/assets/players/map/aquarius.png" class="w-10" alt="item">
+        <% end %>
+      </span>
+
+      
+      <span class="relative mr-[6%] mt-[5%]">
+        <%= link_to arie_path do %>
+          <img src="/assets/players/map/aries.png" class="w-10" alt="item">
+        <% end %>
+      </span>
+  </div>
+</div>

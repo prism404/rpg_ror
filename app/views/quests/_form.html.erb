@@ -28,13 +28,14 @@
               <%= form.text_area :description, class: 'bg-transparent shadow appearance-none border rounded w-[20em]  h-[6em] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
             </div>
             <div class="w-25 grid gap-1 grid-rows-3">
-              <%= form.collection_select :reward_1_id, Reward.all, :id, :name, prompt: 'Select Reward 1', class: 'bg-black shadow appearance-none border rounded w-25' %>
-              <%= form.collection_select :reward_2_id, Reward.all, :id, :name, prompt: 'Select Reward 2' %>
-              <%= form.collection_select :reward_3_id, Reward.all, :id, :name, prompt: 'Select Reward 3' %>
+              <%= form.collection_select :item_1_id, Item.all, :id, :name, prompt: 'Select item 1' %>
+              <%= form.collection_select :item_2_id, Item.all, :id, :name, prompt: 'Select item 2' %>
+              <%= form.collection_select :item_3_id, Item.all, :id, :name, prompt: 'Select item 3' %>
             </div>
 
-            <div class="flex justify-center">
-                <%= form.submit 'Save Quest', class: 'hover:text-[#508D69] text-black p-2 ps-3 pe-3' %>
+            <div class="relative flex justify-center">
+                <img src="/assets/home/button_home3.png" class="w-[200px] custom_link">
+                <%= form.submit 'Save Quest', class: 'absolute top-[52px] text-white hover:text-[#E92306] custom_link' %>
             </div>
           </div>
         <% end %>

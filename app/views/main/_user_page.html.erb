@@ -1,0 +1,30 @@
+<%= link_to "Edit Password", edit_password_path %>
+    <div class="relative left-6">
+        <%= button_to session_path, method: :delete do %>
+        <img src="/assets/home/close_shield.png" class="w-10 absolute right-12 -top-2">
+    </div>
+<% end %>
+
+<div class="relative flex justify-center">
+    <img src="/assets/home/button_proto1.png" class="w-80">
+    <div class="absolute top-8 text-2xl hover:text-[#c63633] cursor-pointer">
+        <%= link_to 'Start New Party', new_character_path %>
+    </div>
+</div>
+
+<% current_user.parties.each do |party| %>
+    <div class="relative pt-3 mx-32 cursor-pointer">
+        <div class="bg-slate-950/50 w-850">
+            <ul>
+                <li class="flex border-t border-slate-950">
+                    <img src="/assets/common/church.jpg" class="w-48">
+                    <div class="grid grid-cols-2 gap-[50em] place-content-around justify-between ml-6">
+                        <%= link_to 'Continue', game_map_path(party), class: 'p-2 px-10 text-xl bg-[#fabb98] rounded' %>
+                        
+                        <%= button_to 'Delete Party', party_path(party), method: :delete, form: { class: "inline" }, class: "delete-button p-2 px-10 text-xl bg-red-500 rounded" %>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<% end %>
