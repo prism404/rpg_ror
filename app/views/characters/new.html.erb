@@ -5,7 +5,6 @@
           <div class="pr-36 grid grid-rows-1 gap-4 place-content-center">
             <%= form.hidden_field :image, id: 'selected-image-path' %>
             <img id="selected-character-image" class="hidden absolute" alt="Selected Character" />
-
             <div id="images-container" class="absolute top-80 h-72 left-10 overflow-hidden">
               <table class="table-fixed w-96">
                 <tbody>
@@ -117,7 +116,7 @@
             </div>
             <div class="absolute top-80 mt-3">
               <% @classes.each do |classe| %>
-                <div id="class-info-<%= classe.id %>" class="class-info <%= 'hidden'   %>">
+                <div id="class-info-<%= classe.id %>" class="class-info <%= 'hidden' unless classe.category.downcase == 'warrior' %>">
                   <div class="text-left">
                     <p class="text-[#d83522]">HP: <%= classe.hp %></p>
                     <p class="mt-12 text-[#7ab4cb]">Attack: <%= classe.attack %></p>
